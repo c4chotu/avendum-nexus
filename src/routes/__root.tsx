@@ -121,8 +121,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <ParticleNetwork />
+      <SiteNav />
+      <main className="pt-24 min-h-screen">
+        <Outlet />
+      </main>
+      <SiteFooter />
     </QueryClientProvider>
   );
 }
+
