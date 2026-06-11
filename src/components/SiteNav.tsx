@@ -7,6 +7,8 @@ import { BrandButton } from "./BrandButton";
 const links = [
   { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
+  { to: "/projects", label: "Projects" },
+  { to: "/insights", label: "Insights" },
   { to: "/company", label: "Company" },
   { to: "/careers", label: "Careers" },
   { to: "/contact", label: "Contact" },
