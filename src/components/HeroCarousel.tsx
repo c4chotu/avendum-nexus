@@ -51,7 +51,7 @@ export function HeroCarousel() {
   }, [embla]);
 
   return (
-    <section className="relative">
+    <section className="relative -mt-24">
       <div ref={emblaRef} className="overflow-hidden">
         <div className="flex">
           {slides.map((s, i) => (

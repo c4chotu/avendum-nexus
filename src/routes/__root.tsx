@@ -130,7 +130,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <ParticleNetwork />
       <SiteNav />
-      <main className="min-h-screen">
+      <main className="pt-24 min-h-screen">
         <Outlet />
       </main>
       <SiteFooter />
