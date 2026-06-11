@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/lib/projects";
 import { GlassCard } from "@/components/GlassCard";
 
-export const Route = createFileRoute("/projects")({
+export const Route = createFileRoute("/projects/")({
   head: () => ({
     meta: [
       { title: "Projects — Avendum Technologies" },
