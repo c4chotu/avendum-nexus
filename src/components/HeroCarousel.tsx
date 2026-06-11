@@ -10,27 +10,35 @@ import hero3 from "@/assets/site/hero-3.jpg";
 const slides = [
   {
     image: hero1,
-    eyebrow: "Telecom · Network Automation",
-    title: "AI Platforms for Telecom Network Automation",
+    eyebrow: "Enterprise Telecom Automation — Live in Production, India",
+    title: "The intelligence layer your network deserves.",
     subtitle:
-      "Zero-touch deployment, autonomous operations, and lifecycle intelligence — engineered for Tier-1 carriers.",
-    cta: { to: "/contact", label: "Start a Project" },
+      "Purpose-built AI platforms that automate microwave deployment planning, 5G IP provisioning, and RAN network auditing — engineered for the scale and complexity of India's telecom operators.",
+    cta: { to: "/demo", label: "Request a Demo" },
   },
   {
     image: hero2,
-    eyebrow: "Intelligence · Real-time Analytics",
-    title: "From Petabytes of Telemetry to Sub-second Decisions",
+    eyebrow: "MIDS — Microwave Planning & Deployment",
+    title: "Stop tracking MW plans in Excel.",
     subtitle:
-      "Streaming AI pipelines that process 150M+ edge nodes, predict anomalies, and close the loop without human delay.",
-    cta: { to: "/services", label: "Explore Capabilities" },
+      "Replaces fragmented spreadsheets with a centralised, role-aware platform — tracking 151,000+ plans from LB release to dismantle across all circles.",
+    cta: { to: "/products/mids", label: "Explore MIDS" },
   },
   {
     image: hero3,
-    eyebrow: "5G · RAN · Edge",
-    title: "Carrier-grade Software, Shipped at Startup Speed",
+    eyebrow: "NEXUS — 5G IP Provisioning",
+    title: "Zero-touch Fiber POP RA provisioning.",
     subtitle:
-      "Senior engineering pods that integrate with your sprint cadence and put production code on the wire in week one.",
-    cta: { to: "/projects", label: "See our work" },
+      "Centralised 4G/5G rollout management integrating with IAMS, ATOM, POINT, and Cygnet to automate network provisioning with zero planner input.",
+    cta: { to: "/products/nexus", label: "Explore NEXUS" },
+  },
+  {
+    image: hero1, // reuse or loop
+    eyebrow: "NETIQ — RAN & MW Audit Intelligence",
+    title: "Find what your NMS is hiding.",
+    subtitle:
+      "Intelligent audit and automation platform parsing daily CM dumps across 4 vendors to find ghost elements and parameter conflicts.",
+    cta: { to: "/products/netiq", label: "Explore NETIQ" },
   },
 ];
 
@@ -119,9 +127,8 @@ export function HeroCarousel() {
             <button
               key={i}
               onClick={() => embla?.scrollTo(i)}
-              className={`h-1.5 rounded-full transition-all ${
-                index === i ? "w-8 bg-primary" : "w-3 bg-foreground/30"
-              }`}
+              className={`h-1.5 rounded-full transition-all ${index === i ? "w-8 bg-primary" : "w-3 bg-foreground/30"
+                }`}
               aria-label={`Slide ${i + 1}`}
             />
           ))}
