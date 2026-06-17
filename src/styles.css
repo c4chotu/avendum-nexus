@@ -103,8 +103,15 @@
 
 @layer base {
   * { border-color: var(--color-border); }
-  html, body { height: 100%; }
+  html {
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
   body {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: visible !important;
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
@@ -179,3 +186,53 @@
 
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Scroll-reveal system ── */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.section-reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+.section-reveal.delay-100 { transition-delay: 0.10s; }
+.section-reveal.delay-200 { transition-delay: 0.20s; }
+.section-reveal.delay-300 { transition-delay: 0.30s; }
+
+/* ── Radar sweep ── */
+@keyframes radar-sweep {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.animate-radar { animation: radar-sweep 4s linear infinite; }
+
+/* ── Progress bar grow ── */
+@keyframes grow-x {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+.animate-grow-x { animation: grow-x 4s linear forwards; }
+
+/* ── Pulse ring ── */
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.6); }
+  70%  { box-shadow: 0 0 0 14px rgba(124, 58, 237, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0); }
+}
+.animate-pulse-ring { animation: pulse-ring 2.5s ease-out infinite; }
+
+/* ── SVG dash flow ── */
+@keyframes dash-flow {
+  to { stroke-dashoffset: -20; }
+}
+.animate-dash { animation: dash-flow 1.2s linear infinite; }
+
+/* ── Data flow ticker ── */
+@keyframes ticker-flow {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-ticker { animation: ticker-flow 40s linear infinite; }
+

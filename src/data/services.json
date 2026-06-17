@@ -1,0 +1,168 @@
+[
+  {
+    "id": "telecom-ai",
+    "icon": "Brain",
+    "title": "Telecom AI & Anomaly Detection",
+    "pitch": "Automated network health monitoring, root cause isolation, and closed-loop recommendations.",
+    "details": "Deploy streaming intelligence pipelines to monitor multi-vendor networks. We integrate Python-based machine learning classifiers alongside Apache Kafka streams and Java/Spring Boot microservices to classify anomalies, isolate root causes, and recommend auto-healing parameter updates.",
+    "bullets": [
+      "Real-time streaming anomaly classification & alerts",
+      "LLM-assisted Root Cause Analysis (RCA)",
+      "Closed-loop automatic remediation triggers",
+      "NOC diagnostic suggestion playbooks"
+    ],
+    "tech": [
+      "Python",
+      "Apache Kafka",
+      "AI Integration",
+      "Spring Boot",
+      "PyTorch"
+    ],
+    "theme": "emerald",
+    "gridClass": "md:col-span-2",
+    "accentColor": "text-emerald-400 border-emerald-500/20 bg-emerald-500/10",
+    "glowColor": "rgba(16, 185, 129, 0.15)"
+  },
+  {
+    "id": "ui-ux",
+    "icon": "Palette",
+    "title": "Platform Customization & Dashboard Engineering",
+    "pitch": "Human-centered interfaces tailored for dense network topologies and planning stencils.",
+    "details": "We customize and extend the frontends of NETRA and NETiQ. We design and build responsive network dashboards, multi-vendor topology viewers, and custom operations design systems to render complex network datasets into clean, actionable dashboards.",
+    "bullets": [
+      "Tailored operations portals and map-based topology viewers",
+      "High-fidelity interactive workflows & planning stencils",
+      "Custom enterprise dashboard styling and dark-theme configurations",
+      "Usability testing for network planning and SRE engineers"
+    ],
+    "tech": [
+      "React",
+      "Vaadin",
+      "UI/UX",
+      "Figma",
+      "Tailwind CSS"
+    ],
+    "theme": "indigo",
+    "gridClass": "md:col-span-1",
+    "accentColor": "text-indigo-400 border-indigo-500/20 bg-indigo-500/10",
+    "glowColor": "rgba(99, 102, 241, 0.15)"
+  },
+  {
+    "id": "software-dev",
+    "icon": "Code2",
+    "title": "Enterprise Integration & API Development",
+    "pitch": "Robust backend integrations, custom northbound/southbound APIs, and database sync pipelines.",
+    "details": "We engineer robust microservices and connectors to integrate NETRA and NETiQ with existing BSS/OSS architectures, planning databases, and NMS platforms. We specialize in Java, Spring Boot, Python, and Kafka, ensuring secure data synchronization and high availability.",
+    "bullets": [
+      "Custom REST/GraphQL APIs and webhook integrations",
+      "Northbound and southbound connectors to legacy OSS/BSS",
+      "Secure enterprise authentication (SSO, SAML) and fine-grained RBAC",
+      "High-performance data synchronization & database mapping"
+    ],
+    "tech": [
+      "Java",
+      "Spring Boot",
+      "Python",
+      "Vaadin",
+      "React"
+    ],
+    "theme": "violet",
+    "gridClass": "md:col-span-1",
+    "accentColor": "text-violet-400 border-violet-500/20 bg-violet-500/10",
+    "glowColor": "rgba(139, 92, 246, 0.15)"
+  },
+  {
+    "id": "acceleration",
+    "icon": "Gauge",
+    "title": "High-Throughput Ingestion & Scale Engineering",
+    "pitch": "Hot-path optimizations, caching networks, and performance tuning for telemetry feeds.",
+    "details": "We optimize heavy telemetric and network data pipelines to handle millions of node events. By fine-tuning Spring Boot JVM settings, configuring Redis caches, and structuring Apache Kafka partitions, we eliminate processing bottlenecks for real-time operations.",
+    "bullets": [
+      "Multi-layer caching architectures (Redis/Varnish)",
+      "Heavy file ingestion and parsing performance tuning",
+      "Database index tuning & query plan optimization",
+      "Auto-scaling infrastructure & queue management"
+    ],
+    "tech": [
+      "Java",
+      "Spring Boot",
+      "Apache Kafka",
+      "Redis",
+      "PostgreSQL"
+    ],
+    "theme": "amber",
+    "gridClass": "md:col-span-1",
+    "accentColor": "text-amber-400 border-amber-500/20 bg-amber-500/10",
+    "glowColor": "rgba(245, 158, 11, 0.15)"
+  },
+  {
+    "id": "strategy",
+    "icon": "Lightbulb",
+    "title": "Network Automation Architecture Consulting",
+    "pitch": "Consulting on modern network architectures, link planning parameters, and transition pathways.",
+    "details": "We assist enterprise networks in designing modern architectures and planning transitions to autonomous, automated networking. We design Microwave link stencils, frequency allocation plans, and migration blueprints.",
+    "bullets": [
+      "Network migration path & automation blueprint design",
+      "Microwave path calculations & nominal stencil definitions",
+      "Capacity auditing and multi-vendor interoperability strategy",
+      "Operational readiness and compliance framework planning"
+    ],
+    "tech": [
+      "RAN Planning",
+      "MW Planning",
+      "IP Core Routing",
+      "OSS Design"
+    ],
+    "theme": "rose",
+    "gridClass": "md:col-span-1",
+    "accentColor": "text-rose-400 border-rose-500/20 bg-rose-500/10",
+    "glowColor": "rgba(244, 63, 94, 0.15)"
+  },
+  {
+    "id": "outsourcing",
+    "icon": "Users",
+    "title": "Platform Co-Engineering & Operations Support",
+    "pitch": "Dedicated solution engineering and operations support to run and extend the platform.",
+    "details": "To ensure maximum value from our platforms, we offer dedicated solution engineering teams and operations support. We provide platform optimization, custom script development, and 24/7 support for continuous operations.",
+    "bullets": [
+      "Dedicated platform reliability and configuration engineers",
+      "Automated platform deployment (Terraform and GitHub Actions)",
+      "24/7/365 operational support and platform SLA compliance",
+      "Custom CLI translator and parser rule updates"
+    ],
+    "tech": [
+      "Terraform",
+      "GitHub Actions",
+      "Java",
+      "Python",
+      "Telecom OSS"
+    ],
+    "theme": "cyan",
+    "gridClass": "md:col-span-2",
+    "accentColor": "text-cyan-400 border-cyan-500/20 bg-cyan-500/10",
+    "glowColor": "rgba(6, 182, 212, 0.15)"
+  },
+  {
+    "id": "program-mgmt",
+    "icon": "Kanban",
+    "title": "Rollout Management & Release Orchestration",
+    "pitch": "Risk profiling and predictability across complex, multi-vendor network rollouts.",
+    "details": "Delivery leadership for large-scale network migrations and software integrations. We manage dependencies across multi-vendor equipment, orchestrate testing, and ensure predictable releases using automated CI/CD pipelines.",
+    "bullets": [
+      "Release dependency mapping & critical path orchestration",
+      "Cross-vendor integration risk profiling & change control",
+      "CI/CD automated testing and rollout validation",
+      "Post-deployment operational audits and transition logs"
+    ],
+    "tech": [
+      "Jira Software",
+      "Confluence",
+      "GitHub Actions",
+      "Miro"
+    ],
+    "theme": "pink",
+    "gridClass": "md:col-span-1",
+    "accentColor": "text-pink-400 border-pink-500/20 bg-pink-500/10",
+    "glowColor": "rgba(236, 72, 153, 0.15)"
+  }
+]

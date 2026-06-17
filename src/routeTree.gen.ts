@@ -20,8 +20,8 @@ import { Route as CompanyIndexRouteImport } from './routes/company.index'
 import { Route as CareersIndexRouteImport } from './routes/careers.index'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 import { Route as ProductsNexusRouteImport } from './routes/products.nexus'
+import { Route as ProductsNetraRouteImport } from './routes/products.netra'
 import { Route as ProductsNetiqRouteImport } from './routes/products.netiq'
-import { Route as ProductsMidsRouteImport } from './routes/products.mids'
 import { Route as CompanyPartnerRouteImport } from './routes/company.partner'
 import { Route as CareersApplyRouteImport } from './routes/careers.apply'
 
@@ -80,14 +80,14 @@ const ProductsNexusRoute = ProductsNexusRouteImport.update({
   path: '/products/nexus',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductsNetraRoute = ProductsNetraRouteImport.update({
+  id: '/products/netra',
+  path: '/products/netra',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductsNetiqRoute = ProductsNetiqRouteImport.update({
   id: '/products/netiq',
   path: '/products/netiq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProductsMidsRoute = ProductsMidsRouteImport.update({
-  id: '/products/mids',
-  path: '/products/mids',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CompanyPartnerRoute = CompanyPartnerRouteImport.update({
@@ -110,8 +110,8 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRoute
   '/careers/apply': typeof CareersApplyRoute
   '/company/partner': typeof CompanyPartnerRoute
-  '/products/mids': typeof ProductsMidsRoute
   '/products/netiq': typeof ProductsNetiqRoute
+  '/products/netra': typeof ProductsNetraRoute
   '/products/nexus': typeof ProductsNexusRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/careers/': typeof CareersIndexRoute
@@ -126,8 +126,8 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRoute
   '/careers/apply': typeof CareersApplyRoute
   '/company/partner': typeof CompanyPartnerRoute
-  '/products/mids': typeof ProductsMidsRoute
   '/products/netiq': typeof ProductsNetiqRoute
+  '/products/netra': typeof ProductsNetraRoute
   '/products/nexus': typeof ProductsNexusRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/careers': typeof CareersIndexRoute
@@ -144,8 +144,8 @@ export interface FileRoutesById {
   '/services': typeof ServicesRoute
   '/careers/apply': typeof CareersApplyRoute
   '/company/partner': typeof CompanyPartnerRoute
-  '/products/mids': typeof ProductsMidsRoute
   '/products/netiq': typeof ProductsNetiqRoute
+  '/products/netra': typeof ProductsNetraRoute
   '/products/nexus': typeof ProductsNexusRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/careers/': typeof CareersIndexRoute
@@ -163,8 +163,8 @@ export interface FileRouteTypes {
     | '/services'
     | '/careers/apply'
     | '/company/partner'
-    | '/products/mids'
     | '/products/netiq'
+    | '/products/netra'
     | '/products/nexus'
     | '/projects/$slug'
     | '/careers/'
@@ -179,8 +179,8 @@ export interface FileRouteTypes {
     | '/services'
     | '/careers/apply'
     | '/company/partner'
-    | '/products/mids'
     | '/products/netiq'
+    | '/products/netra'
     | '/products/nexus'
     | '/projects/$slug'
     | '/careers'
@@ -196,8 +196,8 @@ export interface FileRouteTypes {
     | '/services'
     | '/careers/apply'
     | '/company/partner'
-    | '/products/mids'
     | '/products/netiq'
+    | '/products/netra'
     | '/products/nexus'
     | '/projects/$slug'
     | '/careers/'
@@ -213,8 +213,8 @@ export interface RootRouteChildren {
   InsightsRoute: typeof InsightsRoute
   ServicesRoute: typeof ServicesRoute
   CompanyPartnerRoute: typeof CompanyPartnerRoute
-  ProductsMidsRoute: typeof ProductsMidsRoute
   ProductsNetiqRoute: typeof ProductsNetiqRoute
+  ProductsNetraRoute: typeof ProductsNetraRoute
   ProductsNexusRoute: typeof ProductsNexusRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
   CompanyIndexRoute: typeof CompanyIndexRoute
@@ -300,18 +300,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsNexusRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/products/netra': {
+      id: '/products/netra'
+      path: '/products/netra'
+      fullPath: '/products/netra'
+      preLoaderRoute: typeof ProductsNetraRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/products/netiq': {
       id: '/products/netiq'
       path: '/products/netiq'
       fullPath: '/products/netiq'
       preLoaderRoute: typeof ProductsNetiqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/products/mids': {
-      id: '/products/mids'
-      path: '/products/mids'
-      fullPath: '/products/mids'
-      preLoaderRoute: typeof ProductsMidsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/company/partner': {
@@ -352,8 +352,8 @@ const rootRouteChildren: RootRouteChildren = {
   InsightsRoute: InsightsRoute,
   ServicesRoute: ServicesRoute,
   CompanyPartnerRoute: CompanyPartnerRoute,
-  ProductsMidsRoute: ProductsMidsRoute,
   ProductsNetiqRoute: ProductsNetiqRoute,
+  ProductsNetraRoute: ProductsNetraRoute,
   ProductsNexusRoute: ProductsNexusRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
   CompanyIndexRoute: CompanyIndexRoute,

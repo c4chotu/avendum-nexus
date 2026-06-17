@@ -9,10 +9,10 @@ export function SiteFooter() {
         {/* Info Column */}
         <div className="md:col-span-2">
           <div className="flex items-center">
-            <img src={logo} alt="avendum." className="h-8 w-auto dark:invert" />
+            <img src={logo} alt="avendum." className="h-8 w-auto" />
           </div>
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-            Enterprise telecom intelligence platforms — MIDS · NEXUS · NETIQ — automating network planning, provisioning and audit at scale.
+            NETRA — Enterprise telecom intelligence platforms  <br /> NETIQ — automating network planning, provisioning and NMS audit at scale.
           </p>
           <div className="mt-5 space-y-2 text-xs text-muted-foreground">
             <div className="flex items-start gap-2">
@@ -59,8 +59,7 @@ export function SiteFooter() {
         <div>
           <h4 className="font-display text-sm tracking-widest uppercase text-foreground/60 mb-4">Products</h4>
           <ul className="space-y-2.5 text-sm">
-            <li><Link to="/products/mids" className="hover:text-primary transition-colors">MIDS</Link></li>
-            <li><Link to="/products/nexus" className="hover:text-primary transition-colors">NEXUS</Link></li>
+            <li><Link to="/products/netra" className="hover:text-primary transition-colors">NETRA</Link></li>
             <li><Link to="/products/netiq" className="hover:text-primary transition-colors">NETIQ</Link></li>
             <li><Link to="/" hash="usecases" className="hover:text-primary transition-colors">Use Cases</Link></li>
           </ul>
@@ -73,7 +72,6 @@ export function SiteFooter() {
             <li><Link to="/" hash="amc" className="hover:text-primary transition-colors">AMC Programmes</Link></li>
             <li><Link to="/" hash="amc" className="hover:text-primary transition-colors">Alliance Support</Link></li>
             <li><Link to="/" hash="amc" className="hover:text-primary transition-colors">Managed Operations</Link></li>
-            <li><Link to="/contact" className="hover:text-primary transition-colors">Raise a Ticket</Link></li>
           </ul>
         </div>
 

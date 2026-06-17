@@ -14,7 +14,7 @@ export const Route = createFileRoute("/company/partner")({
       {
         name: "description",
         content:
-          "Partner with Avendum to extend the reach of MIDS, NEXUS, and NETIQ across the telecom ecosystem. Models for SIs, OEMs, and Managed Service partners.",
+          "Partner with Avendum to extend the reach of our platforms across the network operations ecosystem. Models for SIs, OEMs, and Managed Service partners.",
       },
     ],
   }),
@@ -37,7 +37,7 @@ const partnerTypes = [
   {
     icon: Tower,
     type: "OEM / Vendor Partner",
-    desc: "For equipment vendors within the Ericsson, Nokia, Huawei and Samsung ecosystems looking to bundle network intelligence and audit tools alongside their hardware and managed service offerings.",
+    desc: "For equipment vendors within multi-vendor ecosystems looking to bundle network intelligence and audit tools alongside their hardware and managed service offerings.",
     points: [
       "Technology integration & API access",
       "Joint go-to-market with operator accounts",
@@ -49,12 +49,12 @@ const partnerTypes = [
   {
     icon: Wrench,
     type: "Managed Service Partner",
-    desc: "For managed service providers running day-to-day network operations for telecom operators. Use Avendum's platform as your operations backbone with full AMC and Alliance Support coverage.",
+    desc: "For managed service providers running day-to-day network operations. Use Avendum's platform as your operations backbone with full support coverage.",
     points: [
-      "Alliance Partner AMC & L2/L3 support",
+      "Partner support program",
       "Dedicated partner helpdesk escalation path",
       "Role-based access configured for your team",
-      "Monthly SLA reporting & audit logs",
+      "Monthly reporting & audit logs",
       "Early access to new releases"
     ]
   }
@@ -64,7 +64,7 @@ const whyPartner = [
   {
     icon: Target,
     title: "Proven products",
-    desc: "MIDS, NEXUS and NETIQ are live in production. You're partnering on real, deployed software with 150K+ plans tracked."
+    desc: "NETRA and NETiQ are live in production. You're partnering on real, deployed software."
   },
   {
     icon: Handshake,
@@ -74,12 +74,12 @@ const whyPartner = [
   {
     icon: TrendingUp,
     title: "Growing product family",
-    desc: "Three products today, more on the roadmap. As Avendum's platform expands, so does the opportunity for our partners."
+    desc: "Multiple products today, more on the roadmap. As Avendum's platform expands, so does the opportunity for our partners."
   },
   {
     icon: Cpu,
-    title: "Deep telecom domain",
-    desc: "Our products are built natively for telecom. Your clients will recognise software built by people who understand their workflows."
+    title: "Deep network domain",
+    desc: "Our products are built natively for network operations. Your clients will recognise software built by people who understand their workflows."
   }
 ];
 
@@ -101,8 +101,8 @@ function PartnerPage() {
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight">
             Partner with Avendum.<br /><span className="text-gradient">Build together.</span>
           </h1>
-          <p className="mt-5 text-muted-foreground leading-relaxed text-base lg:text-lg max-w-2xl">
-            We work with system integrators, telecom vendors and managed service providers to extend the reach of MIDS, NEXUS and NETIQ across the telecom ecosystem. There is a partnership model built for your organisation.
+          <p className="mt-5 text-muted-foreground leading-relaxed text-base lg:text-lg max-w-2xl font-light">
+            We work with system integrators, network vendors, and managed service providers to extend the reach of our platforms across the enterprise ecosystem. There is a partnership model built for your organisation.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/contact" search={{ interest: "partner" }}><BrandButton>Apply to Partner Programme</BrandButton></Link>

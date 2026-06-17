@@ -19,7 +19,7 @@ export const Route = createFileRoute("/demo")({
       { title: "Book a Demo — Avendum Technologies" },
       { 
         name: "description", 
-        content: "Schedule a 30-minute interactive walk-through of MIDS, NEXUS, or NETIQ, mapped directly to your circle's operational challenges." 
+        content: "Schedule an interactive walk-through of NETRA, NEXUS, or NETIQ, mapped directly to your network's operational challenges." 
       },
     ],
   }),
@@ -27,32 +27,22 @@ export const Route = createFileRoute("/demo")({
 });
 
 const demoScopes = {
-  mids: {
-    title: "MIDS Demo Scope",
+  netra: {
+    title: "NETRA Demo Scope",
     color: "#1A6FD4",
     bullets: [
       "Role-aware planning lifecycles (8 workflow roles)",
-      "25+ VI coordinate and quarter validations live scan",
+      "End-to-End Deployment Tracking",
       "End-to-end dismantle workflow tracking",
-      "Circle-wide UBR and MW dashboards",
-    ]
-  },
-  nexus: {
-    title: "NEXUS Demo Scope",
-    color: "#0F9F6E",
-    bullets: [
-      "5G stencil dual-stack IPv4/IPv6 tracking",
-      "Zero-touch Fiber POP RA automation (Cygnet to ATOM)",
-      "VLAN allocation and subnet auto-assignment",
-      "B2B order activation tracking",
+      "Network-wide UBR and MW dashboards",
     ]
   },
   netiq: {
     title: "NETIQ Demo Scope",
     color: "#7C3AED",
     bullets: [
-      "Daily multi-vendor CM dump parsing (Ericsson & Nokia)",
-      "50+ automated RAN parameter validation scans",
+      "Daily multi-vendor CM dump parsing and integration",
+      "Automated parameter validation scans",
       "Ghost node identification and decommissioning logic",
       "Closed-loop planned vs. configured delta reports",
     ]
@@ -61,17 +51,17 @@ const demoScopes = {
     title: "Full Platform Demo Scope",
     color: "#F26522",
     bullets: [
-      "Overview of MIDS, NEXUS, and NETIQ integrations",
-      "Trace a complete path from MW Planning to live RAN Audit",
+      "Overview of NETRA and NETIQ integrations",
+      "Trace a complete path from Microwave Planning to live NMS Audit",
       "Private cloud air-gapped deployment architecture review",
-      "Escalation SLAs and managed operations models",
+      "Escalation support and managed operations models",
     ]
   }
 };
 
 function DemoPage() {
   const search = Route.useSearch();
-  const [activeTab, setActiveTab] = useState<"mids" | "nexus" | "netiq" | "all">("all");
+  const [activeTab, setActiveTab] = useState<"netra" | "netiq" | "all">("all");
   const [form, setForm] = useState({ name: "", email: "", company: "", phone: "", circle: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
@@ -80,8 +70,7 @@ function DemoPage() {
   const set = (k: string, v: string) => setForm((s) => ({ ...s, [k]: v }));
 
   useEffect(() => {
-    if (search.product === "mids") setActiveTab("mids");
-    else if (search.product === "nexus") setActiveTab("nexus");
+    if (search.product === "mids" || search.product === "netra") setActiveTab("netra");
     else if (search.product === "netiq") setActiveTab("netiq");
     else setActiveTab("all");
   }, [search]);
@@ -122,7 +111,7 @@ function DemoPage() {
           Request a customized <span className="text-gradient">platform demo</span>.
         </h1>
         <p className="mt-5 text-muted-foreground text-lg">
-          See how our AI platforms automate microwave deployment planning, 5G IP provisioning, and RAN network auditing.
+          See how our AI platforms automate microwave deployment planning and network intelligence auditing.
         </p>
       </header>
 
@@ -131,8 +120,8 @@ function DemoPage() {
         <div className="space-y-6">
           <GlassCard gradientBorder hoverGlow={false} className="p-6">
             <h3 className="text-xs font-bold uppercase tracking-wider text-primary mb-4">Select Platform to Explore</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-              {(["all", "mids", "nexus", "netiq"] as const).map((tab) => (
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              {(["all", "netra", "netiq"] as const).map((tab) => (
                 <button
                   key={tab}
                   type="button"
@@ -179,9 +168,9 @@ function DemoPage() {
             <div className="p-4 rounded-xl border border-border/40 bg-foreground/5 flex items-start gap-3">
               <Clock className="h-5 w-5 text-primary shrink-0 mt-0.5" />
               <div>
-                <h4 className="text-xs font-semibold text-foreground">30-Minute Custom Review</h4>
+                <h4 className="text-xs font-semibold text-foreground">Custom Review</h4>
                 <p className="text-[10px] text-muted-foreground mt-0.5 leading-relaxed">
-                  Fast, high-fidelity walk-through structured entirely around your circle&apos;s specific vendor files and stencils. No sales pressure.
+                  Fast, high-fidelity walk-through structured entirely around your network's specific vendor files and stencils. No sales pressure.
                 </p>
               </div>
             </div>
@@ -196,7 +185,7 @@ function DemoPage() {
             
             <div className="grid sm:grid-cols-2 gap-4">
               <FloatingInput label="Company" value={form.company} onChange={(e) => set("company", e.target.value)} />
-              <FloatingInput label="Telecom Circle / Region" value={form.circle} onChange={(e) => set("circle", e.target.value)} />
+              <FloatingInput label="Network Region / Location" value={form.circle} onChange={(e) => set("circle", e.target.value)} />
             </div>
 
             <FloatingInput label="Phone Number (Optional)" value={form.phone} onChange={(e) => set("phone", e.target.value)} />
@@ -207,7 +196,7 @@ function DemoPage() {
               onChange={(e) => set("message", e.target.value)} 
               error={errors.message} 
               rows={4} 
-              placeholder="Tell us about the vendors you use (Ericsson, Nokia, Cisco), your circle scale, or what specific automation challenges you'd like to address..." 
+              placeholder="Tell us about the vendors you use, your network scale, or what specific automation challenges you'd like to address..." 
             />
             
             <BrandButton type="submit" variant="submit" disabled={submitting} className="w-full justify-center mt-4">
@@ -227,7 +216,7 @@ function DemoPage() {
         <div className="text-center py-6">
           <div className="mx-auto h-14 w-14 rounded-full bg-primary/15 text-primary flex items-center justify-center font-display text-2xl">✓</div>
           <p className="mt-5 text-sm text-foreground/85 leading-relaxed font-sans">
-            Thank you! Your demo request has been received. A telecom domain engineer from our team will reach out within 24 hours to coordinate scheduling and gather any custom templates or stencils you would like us to highlight.
+            Thank you! Your demo request has been received. A network automation engineer from our team will reach out to coordinate scheduling and gather any custom templates or stencils you would like us to highlight.
           </p>
           <div className="mt-6">
             <BrandButton variant="secondary" onClick={() => setSuccess(false)}>Close</BrandButton>

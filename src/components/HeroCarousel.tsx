@@ -10,35 +10,27 @@ import hero3 from "@/assets/site/hero-3.jpg";
 const slides = [
   {
     image: hero1,
-    eyebrow: "Enterprise Telecom Automation — Live in Production, India",
+    eyebrow: "NETIQ — Flagship AI-Enhanced Network Intelligence Platform",
+    title: "Find what your NMS is hiding.",
+    subtitle:
+      "Autonomous network intelligence and NMS audit platform parsing daily configuration dumps across multi-vendor networks to resolve parameter conflicts and drifts.",
+    cta: { to: "/products/netiq", label: "Explore NETIQ" },
+  },
+  {
+    image: hero1,
+    eyebrow: "Enterprise Telecom Automation — Live in Production",
     title: "The intelligence layer your network deserves.",
     subtitle:
-      "Purpose-built AI platforms that automate microwave deployment planning, 5G IP provisioning, and RAN network auditing — engineered for the scale and complexity of India's telecom operators.",
+      "Purpose-built AI platforms that automate microwave deployment planning and NMS compliance auditing — engineered for the scale and complexity of national-scale telecom operators.",
     cta: { to: "/demo", label: "Request a Demo" },
   },
   {
     image: hero2,
-    eyebrow: "MIDS — Microwave Planning & Deployment",
-    title: "Stop tracking MW plans in Excel.",
+    eyebrow: "NETRA — Network Planning & Deployment Automation",
+    title: "Network Planning & Deployment",
     subtitle:
-      "Replaces fragmented spreadsheets with a centralised, role-aware platform — tracking 151,000+ plans from LB release to dismantle across all circles.",
-    cta: { to: "/products/mids", label: "Explore MIDS" },
-  },
-  {
-    image: hero3,
-    eyebrow: "NEXUS — 5G IP Provisioning",
-    title: "Zero-touch Fiber POP RA provisioning.",
-    subtitle:
-      "Centralised 4G/5G rollout management integrating with IAMS, ATOM, POINT, and Cygnet to automate network provisioning with zero planner input.",
-    cta: { to: "/products/nexus", label: "Explore NEXUS" },
-  },
-  {
-    image: hero1, // reuse or loop
-    eyebrow: "NETIQ — RAN & MW Audit Intelligence",
-    title: "Find what your NMS is hiding.",
-    subtitle:
-      "Intelligent audit and automation platform parsing daily CM dumps across 4 vendors to find ghost elements and parameter conflicts.",
-    cta: { to: "/products/netiq", label: "Explore NETIQ" },
+      "NETRA replaces fragmented spreadsheet-based deployment planning with a centralised, role-aware platform — tracking every plan across its complete lifecycle.",
+    cta: { to: "/products/netra", label: "Explore NETRA" },
   },
 ];
 

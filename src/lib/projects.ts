@@ -18,108 +18,18 @@ export interface Project {
   stack: string[];
 }
 
-export const projects: Project[] = [
-  {
-    slug: "sentinel-noc",
-    title: "Sentinel — Autonomous NOC for a Tier-1 Operator",
-    category: "AI Operations",
-    client: "Tier-1 South Asia Operator",
-    year: "2024",
-    duration: "9 months",
-    image: project1,
-    summary:
-      "An AI-driven Network Operations Center that reduced mean-time-to-resolution from hours to seconds across 42,000 sites.",
-    challenge:
-      "Manual triage was buckling under 4M+ daily alarms. The operator needed an autonomous loop that could correlate, diagnose, and remediate without human bottleneck — while keeping carrier-grade auditability.",
-    approach: [
-      "Streamed multi-vendor telemetry through a Kafka + Flink pipeline normalized into a topology-aware graph.",
-      "Trained anomaly-detection ensembles on 18 months of historic events with explainable scoring.",
-      "Closed the loop via policy-driven runbooks executed through a secure orchestration plane.",
-      "Shipped a live operations canvas with NL query, replay timeline, and SRE-grade audit trail.",
-    ],
-    outcome: [
-      { label: "MTTR reduction", value: "96%" },
-      { label: "Auto-remediated incidents", value: "73%" },
-      { label: "Alarm noise cut", value: "11×" },
-      { label: "Sites onboarded", value: "42K" },
-    ],
-    stack: ["Kafka", "Flink", "PyTorch", "Neo4j", "Kubernetes", "Grafana"],
-  },
-  {
-    slug: "fiberpath-orchestrator",
-    title: "FiberPath — Multi-vendor Transport Orchestrator",
-    category: "Network Deployment",
-    client: "European Neutral Host",
-    year: "2024",
-    duration: "12 months",
-    image: project2,
-    summary:
-      "Zero-touch provisioning across 6 transport vendors, collapsing 14-day deployments into 38-minute rollouts.",
-    challenge:
-      "Each vendor shipped its own EMS, CLI, and YANG dialects. Field teams stitched configs by hand — slow, error-prone, and impossible to audit at scale.",
-    approach: [
-      "Built a vendor-agnostic intent model that compiles down to per-device NETCONF / gNMI payloads.",
-      "Introduced declarative golden configs with drift detection and self-healing reconciliation.",
-      "Wove a change-management workflow tied to CAB approvals, blast-radius checks, and instant rollback.",
-    ],
-    outcome: [
-      { label: "Deployment time", value: "38 min" },
-      { label: "Config errors", value: "−98%" },
-      { label: "Vendors unified", value: "6" },
-      { label: "Sites/quarter", value: "3,400" },
-    ],
-    stack: ["Go", "NETCONF", "gNMI", "Temporal", "Terraform", "Postgres"],
-  },
-  {
-    slug: "atlas-edge",
-    title: "Atlas — Smart City Edge Intelligence",
-    category: "Edge & IoT",
-    client: "Metro Smart-City Authority",
-    year: "2023",
-    duration: "7 months",
-    image: project3,
-    summary:
-      "A real-time edge mesh ingesting 150M+ sensor events daily across traffic, energy, and public safety.",
-    challenge:
-      "Pilot dashboards collapsed at city scale. The authority needed a federated edge runtime that worked under intermittent connectivity, with privacy guarantees baked in.",
-    approach: [
-      "Deployed a lightweight WASM runtime on 9,200 edge nodes with over-the-air policy updates.",
-      "Federated learning kept raw PII local while sharing model gradients with the central control plane.",
-      "Built a live ‘city twin’ canvas with replay, what-if simulation, and incident-grade alerts.",
-    ],
-    outcome: [
-      { label: "Events/day", value: "150M+" },
-      { label: "Edge nodes", value: "9,200" },
-      { label: "P95 latency", value: "180ms" },
-      { label: "Energy saved", value: "22%" },
-    ],
-    stack: ["Rust", "WASM", "MQTT", "TimescaleDB", "TensorFlow Lite"],
-  },
-  {
-    slug: "vault-core",
-    title: "VaultCore — Carrier-grade Data Platform",
-    category: "Data & Infrastructure",
-    client: "North American MSO",
-    year: "2023",
-    duration: "10 months",
-    image: project4,
-    summary:
-      "Replaced a 7-year-old data warehouse with a lakehouse that powers billing, churn, and capacity planning in real-time.",
-    challenge:
-      "Nightly batch jobs ran 9 hours, blocking finance, capacity, and customer-experience teams from same-day insight.",
-    approach: [
-      "Migrated to an open lakehouse on object storage with Iceberg tables and column-level lineage.",
-      "Introduced streaming CDC from 38 source systems with schema-evolution guardrails.",
-      "Rolled out a semantic layer so analysts query in business language, not SQL ceremony.",
-    ],
-    outcome: [
-      { label: "Data freshness", value: "<2 min" },
-      { label: "Compute cost", value: "−61%" },
-      { label: "Source systems", value: "38" },
-      { label: "Queries/day", value: "1.2M" },
-    ],
-    stack: ["Iceberg", "Spark", "dbt", "Trino", "Airflow", "S3"],
-  },
-];
+import projectsData from "../data/projects.json";
+
+const imageMap: Record<string, string> = {
+  "project-1": project1,
+  "project-2": project2,
+  "project-3": project3,
+  "project-4": project4,
+};
+
+export const projects: Project[] = (projectsData as any[]).map((p) => ({
+  ...p,
+  image: imageMap[p.image] || project1,
+}));
 
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);

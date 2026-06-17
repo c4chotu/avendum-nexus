@@ -72,28 +72,6 @@ export function SiteNav() {
                 <div className="absolute top-full left-0 mt-1 w-64 glass rounded-2xl p-2 shadow-xl border border-border animate-fade-up">
                   <span className="block px-3 py-1.5 text-[10px] font-semibold text-muted-foreground uppercase tracking-widest">Our Platforms</span>
                   <Link
-                    to="/products/mids"
-                    className="flex items-center gap-3 p-2 rounded-xl hover:bg-foreground/5 transition-colors text-left"
-                    onClick={() => setProductsOpen(false)}
-                  >
-                    <span className="h-2 w-2 rounded-full bg-[#1A6FD4] shrink-0" />
-                    <div>
-                      <div className="text-sm font-semibold text-foreground">MIDS</div>
-                      <div className="text-[11px] text-muted-foreground">MW Planning & Deployment</div>
-                    </div>
-                  </Link>
-                  <Link
-                    to="/products/nexus"
-                    className="flex items-center gap-3 p-2 rounded-xl hover:bg-foreground/5 transition-colors text-left"
-                    onClick={() => setProductsOpen(false)}
-                  >
-                    <span className="h-2 w-2 rounded-full bg-[#0F9F6E] shrink-0" />
-                    <div>
-                      <div className="text-sm font-semibold text-foreground">NEXUS</div>
-                      <div className="text-[11px] text-muted-foreground">5G IP Provisioning</div>
-                    </div>
-                  </Link>
-                  <Link
                     to="/products/netiq"
                     className="flex items-center gap-3 p-2 rounded-xl hover:bg-foreground/5 transition-colors text-left"
                     onClick={() => setProductsOpen(false)}
@@ -101,7 +79,18 @@ export function SiteNav() {
                     <span className="h-2 w-2 rounded-full bg-[#7C3AED] shrink-0" />
                     <div>
                       <div className="text-sm font-semibold text-foreground">NETIQ</div>
-                      <div className="text-[11px] text-muted-foreground">RAN & MW Audit Intelligence</div>
+                      <div className="text-[11px] text-muted-foreground">Network Intelligence Platform</div>
+                    </div>
+                  </Link>
+                  <Link
+                    to="/products/netra"
+                    className="flex items-center gap-3 p-2 rounded-xl hover:bg-foreground/5 transition-colors text-left"
+                    onClick={() => setProductsOpen(false)}
+                  >
+                    <span className="h-2 w-2 rounded-full bg-[#1A6FD4] shrink-0" />
+                    <div>
+                      <div className="text-sm font-semibold text-foreground">NETRA</div>
+                      <div className="text-[11px] text-muted-foreground">Network Planning & Deployment</div>
                     </div>
                   </Link>
                 </div>
@@ -114,7 +103,7 @@ export function SiteNav() {
               className="px-4 py-2 text-sm text-foreground/75 hover:text-foreground transition-colors"
               activeProps={{ className: "!text-primary font-medium" }}
             >
-              Services
+              What We Build
             </Link>
 
             {/* Scroll Anchors */}
@@ -208,28 +197,20 @@ export function SiteNav() {
             <nav className="flex flex-col gap-1">
               <span className="px-3 py-1.5 text-[10px] font-semibold text-muted-foreground uppercase tracking-widest">Products</span>
               <Link
-                to="/products/mids"
-                onClick={() => setOpen(false)}
-                className="flex items-center gap-3 px-4 py-2 text-sm text-foreground/80 hover:text-primary hover:bg-foreground/5 rounded-xl"
-              >
-                <span className="h-2 w-2 rounded-full bg-[#1A6FD4]" />
-                <span>MIDS (MW Planning)</span>
-              </Link>
-              <Link
-                to="/products/nexus"
-                onClick={() => setOpen(false)}
-                className="flex items-center gap-3 px-4 py-2 text-sm text-foreground/80 hover:text-primary hover:bg-foreground/5 rounded-xl"
-              >
-                <span className="h-2 w-2 rounded-full bg-[#0F9F6E]" />
-                <span>NEXUS (5G Provisioning)</span>
-              </Link>
-              <Link
                 to="/products/netiq"
                 onClick={() => setOpen(false)}
                 className="flex items-center gap-3 px-4 py-2 text-sm text-foreground/80 hover:text-primary hover:bg-foreground/5 rounded-xl"
               >
                 <span className="h-2 w-2 rounded-full bg-[#7C3AED]" />
-                <span>NETIQ (RAN & MW Audit)</span>
+                <span>NETIQ (Network Intelligence)</span>
+              </Link>
+              <Link
+                to="/products/netra"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-3 px-4 py-2 text-sm text-foreground/80 hover:text-primary hover:bg-foreground/5 rounded-xl"
+              >
+                <span className="h-2 w-2 rounded-full bg-[#1A6FD4]" />
+                <span>NETRA (Network Planning)</span>
               </Link>
 
               <div className="my-2 border-t border-border/40" />
@@ -240,7 +221,7 @@ export function SiteNav() {
                 className="px-4 py-2 text-sm text-foreground/80 hover:text-primary rounded-xl"
                 activeProps={{ className: "!text-primary" }}
               >
-                Services
+                What We Build
               </Link>
               <Link
                 to="/"

@@ -13,155 +13,38 @@ import { GlassCard } from "@/components/GlassCard";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services & Capabilities — Avendum Technologies" },
-      { name: "description", content: "AI engineering, network planning, software development, and specialized RAN/MW/Core/IP teams for telecom operators." },
+      { title: "What We Build — Avendum Technologies" },
+      { name: "description", content: "Platform engineering, custom dashboards, API integrations, and telecom AI automation capabilities." },
     ],
   }),
   component: ServicesPage,
 });
 
+import * as LucideIcons from "lucide-react";
+import servicesData from "../data/services.json";
+
 interface Service {
   id: string;
-  icon: typeof Palette;
+  icon: any;
   title: string;
   pitch: string;
   details: string;
   bullets: string[];
   tech: string[];
-  theme: "emerald" | "indigo" | "violet" | "amber" | "cyan" | "pink" | "rose";
+  theme: "emerald" | "indigo" | "violet" | "amber" | "cyan" | "pink" | "rose" | string;
   gridClass: string;
   accentColor: string;
   glowColor: string;
 }
 
-const services: Service[] = [
-  {
-    id: "telecom-ai",
-    icon: Brain,
-    title: "Telecom AI & Anomaly Detection",
-    pitch: "Automated network health monitoring, root cause isolation, and closed-loop recommendations.",
-    details: "Deploy streaming intelligence pipelines to monitor multi-vendor networks. We run Python-based machine learning classifiers alongside Apache Kafka streams, integrated directly into Java/Spring Boot microservices to classify anomalies and recommend auto-healing configurations.",
-    bullets: [
-      "Real-time streaming anomaly classification & alerts",
-      "LLM-assisted Root Cause Analysis (RCA)",
-      "Closed-loop automatic remediation triggers",
-      "NOC diagnostic suggestion playbooks"
-    ],
-    tech: ["Python", "Apache Kafka", "AI Integration", "Spring Boot", "PyTorch"],
-    theme: "emerald",
-    gridClass: "md:col-span-2",
-    accentColor: "text-emerald-400 border-emerald-500/20 bg-emerald-500/10",
-    glowColor: "rgba(16, 185, 129, 0.15)"
-  },
-  {
-    id: "ui-ux",
-    icon: Palette,
-    title: "Visual UI & UX Design",
-    pitch: "Human-centered interfaces for dense operator-grade complexity.",
-    details: "We design and build responsive network dashboards, planning modules, and topology viewers. We specialize in React and Vaadin design implementations to render complex telecom datasets into clean, actionable dashboards.",
-    bullets: [
-      "User journey mapping & IA modeling",
-      "High-fidelity clickable prototypes & mockups",
-      "Custom operations design system creation",
-      "Usability testing for network engineers"
-    ],
-    tech: ["React", "Vaadin", "UI/UX", "Figma", "Tailwind CSS"],
-    theme: "indigo",
-    gridClass: "md:col-span-1",
-    accentColor: "text-indigo-400 border-indigo-500/20 bg-indigo-500/10",
-    glowColor: "rgba(99, 102, 241, 0.15)"
-  },
-  {
-    id: "software-dev",
-    icon: Code2,
-    title: "Software Development",
-    pitch: "Enterprise-grade backends, microservices, and network orchestration platforms.",
-    details: "We engineer robust backends and custom OSS/BSS integrations. We specialize in Java, Spring Boot, and Python, combining them with React and Vaadin for seamless frontend-backend orchestration.",
-    bullets: [
-      "Microservices & REST/GraphQL APIs",
-      "Time-series & network graph database schemas",
-      "Third-party OSS/BSS connectors",
-      "Secure enterprise authentication & RBAC"
-    ],
-    tech: ["Java", "Spring Boot", "Python", "Vaadin", "React"],
-    theme: "violet",
-    gridClass: "md:col-span-1",
-    accentColor: "text-violet-400 border-violet-500/20 bg-violet-500/10",
-    glowColor: "rgba(139, 92, 246, 0.15)"
-  },
-  {
-    id: "acceleration",
-    icon: Gauge,
-    title: "Service Acceleration",
-    pitch: "Hot-path optimizations, caching networks, and extreme latency reduction.",
-    details: "We optimize heavy telemetry workloads and data ingest paths. By fine-tuning Java/Spring Boot microservices, setting up Redis caches, and structuring Apache Kafka messaging, we reduce response times for operations teams.",
-    bullets: [
-      "Multi-layer caching architectures (Redis/Varnish)",
-      "Database index & query plan optimization",
-      "Real-user monitoring (RUM) & tracing setup",
-      "Load balancing & auto-scaling orchestration"
-    ],
-    tech: ["Java", "Spring Boot", "Apache Kafka", "Redis", "PostgreSQL"],
-    theme: "amber",
-    gridClass: "md:col-span-1",
-    accentColor: "text-amber-400 border-amber-500/20 bg-amber-500/10",
-    glowColor: "rgba(245, 158, 11, 0.15)"
-  },
-  {
-    id: "strategy",
-    icon: Lightbulb,
-    title: "Network Planning & Strategy",
-    pitch: "Microwave path planning, link budgets, and IP Core modernizations.",
-    details: "Telecom planning blueprints, link budgets, and architecture strategy. We audit NMS/EMS settings, calculate Microwave path attenuation, and design scalable IP routing topologies.",
-    bullets: [
-      "Microwave link planning & path calculations",
-      "RAN frequency allocation & capacity audits",
-      "IP Core routing & architecture blueprints",
-      "OSS/BSS vendor evaluation & integration planning"
-    ],
-    tech: ["RAN Planning", "MW Planning", "IP Core Routing", "OSS Design"],
-    theme: "rose",
-    gridClass: "md:col-span-1",
-    accentColor: "text-rose-400 border-rose-500/20 bg-rose-500/10",
-    glowColor: "rgba(244, 63, 94, 0.15)"
-  },
-  {
-    id: "outsourcing",
-    icon: Users,
-    title: "Specialized Telecom OSS Teams",
-    pitch: "Dedicated engineering squads for RAN, Microwave, Core, and IP network operations.",
-    details: "Leverage our deep telecom domain expertise. We build and deploy specialized developer and operations squads aligned to your needs: RAN engineering, Microwave backhaul, Core packet networks, and IP routing systems. Fully managed with Terraform and GitHub Actions.",
-    bullets: [
-      "Specialized RAN and MW engineering squads",
-      "Core & IP network configuration specialists",
-      "Automated deployments via Terraform and GitHub Actions",
-      "24/7/365 NOC monitoring & SLA compliance"
-    ],
-    tech: ["Terraform", "GitHub Actions", "Java", "Python", "Telecom OSS"],
-    theme: "cyan",
-    gridClass: "md:col-span-2",
-    accentColor: "text-cyan-400 border-cyan-500/20 bg-cyan-500/10",
-    glowColor: "rgba(6, 182, 212, 0.15)"
-  },
-  {
-    id: "program-mgmt",
-    icon: Kanban,
-    title: "Program & Release Management",
-    pitch: "Risk profiling and predictability across complex, multi-vendor rollouts.",
-    details: "Hands-on delivery leadership for large-scale migrations and integrations. We coordinate multi-vendor dependencies and automate testing/deployment pipelines using GitHub Actions.",
-    bullets: [
-      "Dependency mapping & critical paths",
-      "Cross-vendor release coordination",
-      "Risk mitigation & change control",
-      "Operational readiness auditing"
-    ],
-    tech: ["Jira Software", "Confluence", "GitHub Actions", "Miro"],
-    theme: "pink",
-    gridClass: "md:col-span-1",
-    accentColor: "text-pink-400 border-pink-500/20 bg-pink-500/10",
-    glowColor: "rgba(236, 72, 153, 0.15)"
-  }
-];
+const getIcon = (iconName: string) => {
+  return (LucideIcons as any)[iconName] || LucideIcons.HelpCircle;
+};
+
+const services: Service[] = (servicesData as any[]).map((s) => ({
+  ...s,
+  icon: getIcon(s.icon),
+}));
 
 function ServicesPage() {
   const [activeService, setActiveService] = useState<Service | null>(null);
@@ -191,7 +74,7 @@ function ServicesPage() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="font-display text-4xl sm:text-6xl font-semibold leading-tight tracking-tight"
           >
-            Custom Engineering for <span className="text-gradient font-bold">Mission-Critical Networks</span>.
+            Platform Engineering & Solution Development for <span className="text-gradient font-bold">Mission-Critical Networks</span>.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 15 }}
@@ -448,19 +331,19 @@ function MiniSquadVisualizer() {
   return (
     <div className="flex flex-col gap-2 w-full max-w-[150px] text-[9px] font-mono justify-center">
       <div className="flex items-center justify-between">
-        <span className="text-muted-foreground">RAN TEAM</span>
+        <span className="text-muted-foreground">RAN SQUAD</span>
         <span className="flex items-center gap-1 text-emerald-400 font-semibold">
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" /> ON
         </span>
       </div>
       <div className="flex items-center justify-between">
-        <span className="text-muted-foreground">MW TEAM</span>
+        <span className="text-muted-foreground">MW SQUAD</span>
         <span className="flex items-center gap-1 text-emerald-400 font-semibold">
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" /> ON
         </span>
       </div>
       <div className="flex items-center justify-between">
-        <span className="text-muted-foreground">CORE & IP</span>
+        <span className="text-muted-foreground">CORE & IP SQUAD</span>
         <span className="flex items-center gap-1 text-emerald-400 font-semibold">
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" /> ON
         </span>
@@ -973,30 +856,30 @@ function AccelerationVisualizer() {
 }
 
 // ---------------------------
-// 5. Specialized Telecom OSS Teams Visualizer
+// 5. Platform Co-Engineering & Operations Support Visualizer
 // ---------------------------
 function OutsourcingVisualizer() {
   const [activeTeam, setActiveTeam] = useState<"ran" | "mw" | "core-ip">("ran");
 
   const teams = {
     ran: {
-      name: "Specialized RAN Planning Squad",
-      focus: "Radio Access Networks",
+      name: "Platform RAN Integration Squad",
+      focus: "Radio Access Networks Integration",
       status: "Active Optimization",
       engineers: ["Priya M. (RAN Lead)", "Anil K. (RF Auditor)", "Siddharth S. (Python Analyst)"],
       metric: "CM Dumps Audited: 24,000/day",
       uptime: "99.9%"
     },
     mw: {
-      name: "Microwave link planning Squad",
-      focus: "MW Transport / Backhaul Link Planning",
+      name: "Platform Microwave Integration Squad",
+      focus: "MW Transport / Backhaul Integration",
       status: "Active Link Planning",
       engineers: ["Sarah J. (MW Lead)", "James L. (Pathloss Specialist)"],
       metric: "Active microwave plans: 150,000+",
       uptime: "100%"
     },
     "core-ip": {
-      name: "Packet Core & IP Routing Squad",
+      name: "Platform Packet Core & IP Integration Squad",
       focus: "5G IP Provisioning",
       status: "Active Provisioning",
       engineers: ["Daniel V. (IP Lead)", "Chloe P. (Spring Boot / Java)", "Arjun S. (Kafka DevOps)"],
@@ -1017,7 +900,7 @@ function OutsourcingVisualizer() {
               className={`p-3 rounded-xl border transition-all text-center cursor-pointer ${isActive ? "bg-primary/10 border-primary text-primary" : "border-border/40 hover:bg-secondary/40 text-muted-foreground"
                 }`}
             >
-              <span className="block text-xs font-semibold uppercase">{key} Team</span>
+              <span className="block text-xs font-semibold uppercase">{key} Squad</span>
             </button>
           );
         })}
@@ -1060,7 +943,7 @@ function OutsourcingVisualizer() {
 
       <div className="text-center">
         <p className="text-[11px] text-muted-foreground leading-relaxed">
-          Select teams above to inspect specialized rosters. Our teams are aligned to physical network layers.
+          Select squads above to inspect integration teams. Our squads align to platform extension and operation needs.
         </p>
       </div>
     </div>
