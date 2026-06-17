@@ -123,7 +123,7 @@ const capabilities = [
     icon: Settings,
     title: "Automation & Operational Insights",
     subtitle: "AI-Powered Detection",
-    desc: "Flags exact anomalies with system IDs and delivers structured intelligence payloads â€” equipping operations teams with precision data for remediation decisions.",
+    desc: "Flags exact anomalies with system IDs and delivers structured intelligence payloads - equipping operations teams with precision data for remediation decisions.",
     details: [
       "API-ready structured outputs for orchestration and ticketing systems",
       "Anomaly event streams with full context (vendor, domain, parameter)",
@@ -141,7 +141,7 @@ const domainParsers = [
     vendors: ["Ericsson ENM", "Huawei U2000", "Nokia NetAct", "ZTE NetNumen"],
     elements: ["eNodeB", "gNodeB", "BTS", "Cell Sites", "Sectors"],
     color: "#7C3AED",
-    desc: "Parses RAN configuration exports â€” cell parameters, PCI allocations, neighbour relations, antenna tilts, and frequency plans across all vendors."
+    desc: "Parses RAN configuration exports - cell parameters, PCI allocations, neighbour relations, antenna tilts, and frequency plans across all vendors."
   },
   {
     id: "mw",
@@ -151,7 +151,7 @@ const domainParsers = [
     vendors: ["Ericsson MINI-LINK", "Huawei OptiX", "Nokia Wavence", "Cambium"],
     elements: ["Near-End", "Far-End", "Hops", "Modulation", "ACM Profiles"],
     color: "#2563EB",
-    desc: "Ingests microwave link planning data â€” hop lengths, link IDs, frequency allocations, ACM profiles, and near/far-end parameter validations."
+    desc: "Ingests microwave link planning data - hop lengths, link IDs, frequency allocations, ACM profiles, and near/far-end parameter validations."
   },
   {
     id: "ubr",
@@ -171,7 +171,7 @@ const domainParsers = [
     vendors: ["Openreach", "OLT Vendors", "SDH/OTN"],
     elements: ["OLT/ONU", "Fiber Paths", "SDH STM", "WDM Channels"],
     color: "#059669",
-    desc: "Parses wireline and fiber infrastructure data â€” OLT/ONU configs, SDH/OTN tributary maps, wavelength assignments, and fiber route coherence checks."
+    desc: "Parses wireline and fiber infrastructure data - OLT/ONU configs, SDH/OTN tributary maps, wavelength assignments, and fiber route coherence checks."
   },
   {
     id: "router",
@@ -181,7 +181,7 @@ const domainParsers = [
     vendors: ["Cisco IOS-XR", "Juniper JUNOS", "Nokia SR-OS", "Huawei VRP"],
     elements: ["PE/P Routers", "BGP Sessions", "MPLS LSPs", "Interface IPs"],
     color: "#D97706",
-    desc: "Extracts IP/MPLS router configs â€” interface assignments, BGP session states, MPLS label-switched paths, and VRF definitions for cross-domain correlation."
+    desc: "Extracts IP/MPLS router configs - interface assignments, BGP session states, MPLS label-switched paths, and VRF definitions for cross-domain correlation."
   },
   {
     id: "core",
@@ -191,7 +191,7 @@ const domainParsers = [
     vendors: ["Ericsson EPC", "Huawei EPC", "Nokia PCRF", "Generic CN5G"],
     elements: ["MME/AMF", "SGW/UPF", "PGW/SMF", "HSS/UDM"],
     color: "#BE185D",
-    desc: "Ingests core network element configurations â€” MME/AMF, SGW/UPF, PGW/SMF identifiers, and validates logical linkages from RAN to core."
+    desc: "Ingests core network element configurations - MME/AMF, SGW/UPF, PGW/SMF identifiers, and validates logical linkages from RAN to core."
   }
 ];
 
@@ -429,7 +429,7 @@ function NetiqPage() {
             AI-Enhanced Network<br /><span className="text-gradient">Intelligence & Automation</span>
           </h1>
           <p className="mt-5 text-muted-foreground leading-relaxed text-base max-w-2xl font-light">
-            NETiQ is Avendum&apos;s flagship AI-powered Network Intelligence platform. It ingests multi-vendor, multi-domain configuration dumps across RAN, MW, UBR, Wireline, Router, and Core layers â€” normalising them into a unified intelligence ledger, detecting parameter anomalies, mapping service topologies, and surfacing actionable audit intelligence for operations teams.
+            NETiQ is Avendum&apos;s flagship AI-powered Network Intelligence platform. It ingests multi-vendor, multi-domain configuration dumps across RAN, MW, UBR, Wireline, Router, and Core layers - normalising them into a unified intelligence ledger, detecting parameter anomalies, mapping service topologies, and surfacing actionable audit intelligence for operations teams.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/demo" search={{ product: "netiq" }}><BrandButton>Request NETIQ Demo <ArrowRight className="h-4 w-4" /></BrandButton></Link>
@@ -445,11 +445,11 @@ function NetiqPage() {
           </GlassCard>
           <GlassCard gradientBorder className="border-[#7C3AED]/35 shadow-[0_4px_20px_rgba(124,58,237,0.08)]">
             <div className="font-display text-xl font-bold text-[#7C3AED]">Multi-Domain Parser Engine</div>
-            <p className="text-xs text-muted-foreground mt-1">Ingests and normalises configuration exports from six network domains â€” RAN, MW, UBR, Wireline, Router, and Core â€” in a single pipeline.</p>
+            <p className="text-xs text-muted-foreground mt-1">Ingests and normalises configuration exports from six network domains - RAN, MW, UBR, Wireline, Router, and Core - in a single pipeline.</p>
           </GlassCard>
           <GlassCard gradientBorder className="border-[#7C3AED]/35 shadow-[0_4px_20px_rgba(124,58,237,0.08)]">
             <div className="font-display text-xl font-bold text-[#7C3AED]">Service Topology Mapping</div>
-            <p className="text-xs text-muted-foreground mt-1">Stitches cross-domain service paths â€” tracing how data flows from radio cell to core, surfacing broken links and routing mismatches.</p>
+            <p className="text-xs text-muted-foreground mt-1">Stitches cross-domain service paths - tracing how data flows from radio cell to core, surfacing broken links and routing mismatches.</p>
           </GlassCard>
         </div>
       </section>
@@ -486,7 +486,7 @@ function NetiqPage() {
               One platform. <span className="text-gradient">Six network domains.</span>
             </h2>
             <p className="mt-3 text-muted-foreground text-sm leading-relaxed max-w-2xl">
-              NETiQ's ingestion engine connects natively to every major network domain â€” parsing vendor-specific configuration exports into a single, normalised intelligence ledger without custom connectors or manual mapping.
+              NETiQ's ingestion engine connects natively to every major network domain - parsing vendor-specific configuration exports into a single, normalised intelligence ledger without custom connectors or manual mapping.
             </p>
           </div>
           <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground glass px-4 py-2.5 border-[#7C3AED]/20 shrink-0">
@@ -1257,7 +1257,7 @@ function NetiqPage() {
           <div className="relative">
             <h2 className="font-display text-3xl font-bold">Find what your NMS is hiding.</h2>
             <p className="mt-3 text-sm text-muted-foreground max-w-xl mx-auto">
-              Talk to our team about running a NETIQ deployment on your network â€” we&apos;ll show you the discrepancies your current systems are missing.
+              Talk to our team about running a NETIQ deployment on your network - we&apos;ll show you the discrepancies your current systems are missing.
             </p>
             <div className="mt-6 flex flex-wrap gap-3 justify-center">
               <Link to="/demo" search={{ product: "netiq" }}><BrandButton>Request NETIQ Demo</BrandButton></Link>
