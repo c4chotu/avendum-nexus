@@ -16,7 +16,7 @@ export const Route = createFileRoute("/careers/apply")({
   validateSearch: (search) => applySearchSchema.parse(search),
   head: () => ({
     meta: [
-      { title: "Apply — Careers at Avendum Technologies" },
+      { title: "Apply - Careers at Avendum Technologies" },
       { 
         name: "description", 
         content: "Join our team and build the software that automates India's telecom network operations floor." 

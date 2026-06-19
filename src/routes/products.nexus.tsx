@@ -7,7 +7,7 @@ import { Cpu, ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
 export const Route = createFileRoute("/products/nexus")({
   head: () => ({
     meta: [
-      { title: "NEXUS — IP Provisioning Automation | Avendum" },
+      { title: "NEXUS - IP Provisioning Automation | Avendum" },
       {
         name: "description",
         content:
@@ -57,7 +57,7 @@ function NexusPage() {
               <div>
                 <h4 className="text-xs font-semibold text-foreground">Secure Deployment Sandbox</h4>
                 <p className="text-[11px] text-muted-foreground mt-0.5 leading-relaxed">
-                  During this validation phase, active IP allocation workflows and cygnet-to-atom integrations are simulated within local, isolated private cloud network testbeds.
+                  During this validation phase, active IP allocation workflows and cygnet-to-order-management integrations are simulated within local, isolated private cloud network testbeds.
                 </p>
               </div>
             </div>

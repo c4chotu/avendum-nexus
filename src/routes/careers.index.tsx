@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import {
   Search, MapPin, Target, Rocket, Handshake, Brain,
   LineChart, Globe, IndianRupee, GraduationCap, HeartPulse, Laptop,
@@ -20,7 +20,7 @@ export const Route = createFileRoute("/careers/")({
   validateSearch: (search) => careersSearchSchema.parse(search),
   head: () => ({
     meta: [
-      { title: "Careers & Open Roles — Avendum Technologies" },
+      { title: "Careers & Open Roles - Avendum Technologies" },
       {
         name: "description",
         content:
@@ -66,13 +66,13 @@ const culture = [
   {
     icon: Rocket,
     title: "Production Impact, Fast",
-    desc: "Our products run live in production. You'll see your work matter in a system managing 150,000+ live microwave plans across PAN India — not in a sandbox or a mockup environment.",
+    desc: "Our products run live in production. You'll see your work matter in a system managing 150,000+ live microwave plans across PAN India - not in a sandbox or a mockup environment.",
     glowColor: "rgba(139, 92, 246, 0.12)"
   },
   {
     icon: Handshake,
     title: "Real Code Ownership",
-    desc: "We operate in highly focused, autonomous squads. Everyone who joins owns their area — you shape the product direction and have a direct voice in our architecture.",
+    desc: "We operate in highly focused, autonomous squads. Everyone who joins owns their area - you shape the product direction and have a direct voice in our architecture.",
     glowColor: "rgba(245, 158, 11, 0.12)"
   },
   {
@@ -126,7 +126,7 @@ const steps = [
   {
     step: "01",
     title: "Profile Review",
-    desc: "A senior engineering lead reviews your experience. We do not use automated keyword filters — every application is carefully reviewed by a human.",
+    desc: "A senior engineering lead reviews your experience. We do not use automated keyword filters - every application is carefully reviewed by a human.",
     details: ["We evaluate your engineering foundation", "Review your Github profile or previous projects", "Takes 3-5 business days"],
     icon: Briefcase
   },
@@ -152,6 +152,47 @@ const steps = [
     icon: UserCheck
   }
 ];
+
+declare module "react" {
+  namespace JSX {
+    interface IntrinsicElements {
+      'lottie-player': any;
+    }
+  }
+}
+
+function HeroAnimation() {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js";
+    document.head.appendChild(script);
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
+  return (
+    <div className="relative w-full h-[380px] flex items-center justify-center overflow-hidden">
+      {/* Soft Orange Glow Shadow behind the animation */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] bg-primary/20 rounded-full blur-[65px] pointer-events-none" />
+
+      {/* Ground shadow beneath the animation: soft under light mode, darker under dark mode */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[240px] h-[12px] bg-black/10 dark:bg-black/40 rounded-full blur-md pointer-events-none" />
+
+      {/* Lottie Player Web Component with theme orange drop shadow */}
+      <div className="w-full h-full max-w-[340px] max-h-[340px] flex items-center justify-center relative z-10 filter drop-shadow-[0_0_35px_rgba(255,107,0,0.25)] drop-shadow-[0_15px_15px_rgba(0,0,0,0.1)] dark:drop-shadow-[0_15px_15px_rgba(0,0,0,0.3)]">
+        <lottie-player
+          src="/careers-anim.json"
+          background="transparent"
+          speed="1"
+          loop
+          autoplay
+          style={{ width: "100%", height: "100%" }}
+        />
+      </div>
+    </div>
+  );
+}
 
 function CareersPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -342,7 +383,7 @@ function CareersPage() {
       <div className="relative z-10 mx-auto max-w-7xl px-6">
 
         {/* Full-bleed Hero Section */}
-        <section className="relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-16 lg:py-24 border-b border-border/40">
+        <section className="relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-4 lg:py-4 border-b border-border/40">
           <div className="lg:col-span-7 space-y-6">
             <motion.div
               initial={{ opacity: 0, y: -10 }}
@@ -389,117 +430,46 @@ function CareersPage() {
             </motion.div>
           </div>
 
-          {/* Right Side: Engineering Disciplines & Tech Stack Panel */}
+          {/* Right Side: Lottie Animation Panel */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-5 glass border border-border bg-card/40 rounded-3xl p-6 relative overflow-hidden flex flex-col justify-between space-y-4"
+            className="lg:col-span-5"
           >
-            <div className="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-full blur-xl pointer-events-none animate-pulse" />
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none animate-pulse" />
-
-            <div className="flex items-center justify-between border-b border-border/40 pb-3 z-10">
-              <div className="flex items-center gap-2">
-                <Terminal className="h-4 w-4 text-primary" />
-                <span className="text-[10px] font-mono tracking-widest text-muted-foreground uppercase">ENGINEERING_DISCIPLINES</span>
-              </div>
-              <span className="text-[9px] font-mono text-emerald-400 flex items-center gap-1">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" /> SQUADS_ACTIVE
-              </span>
-            </div>
-
-            <div className="space-y-3.5 z-10 font-sans">
-              {/* Platform Eng */}
-              <div className="flex items-start gap-3 bg-foreground/[0.02] border border-border/20 p-3 rounded-2xl hover:border-primary/30 transition-all group">
-                <div className="h-8 w-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
-                  <Server className="h-4 w-4" />
-                </div>
-                <div className="space-y-1">
-                  <div className="flex items-center justify-between w-full">
-                    <h4 className="text-xs font-semibold text-foreground">Platform Engineering</h4>
-                    <span className="text-[9px] font-mono text-muted-foreground">Java / Spring Boot</span>
-                  </div>
-                  <p className="text-[10px] text-muted-foreground font-light leading-relaxed">High-concurrency network orchestration & robust databases.</p>
-                </div>
-              </div>
-
-              {/* Frontend Eng */}
-              <div className="flex items-start gap-3 bg-foreground/[0.02] border border-border/20 p-3 rounded-2xl hover:border-primary/30 transition-all group">
-                <div className="h-8 w-8 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 shrink-0">
-                  <Code2 className="h-4 w-4" />
-                </div>
-                <div className="space-y-1">
-                  <div className="flex items-center justify-between w-full">
-                    <h4 className="text-xs font-semibold text-foreground">Frontend & UI/UX</h4>
-                    <span className="text-[9px] font-mono text-indigo-400">React / Vaadin</span>
-                  </div>
-                  <p className="text-[10px] text-muted-foreground font-light leading-relaxed">Interactive topologies, data visuals, and micro-animations.</p>
-                </div>
-              </div>
-
-              {/* Data Eng */}
-              <div className="flex items-start gap-3 bg-foreground/[0.02] border border-border/20 p-3 rounded-2xl hover:border-primary/30 transition-all group">
-                <div className="h-8 w-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
-                  <Database className="h-4 w-4" />
-                </div>
-                <div className="space-y-1">
-                  <div className="flex items-center justify-between w-full">
-                    <h4 className="text-xs font-semibold text-foreground">Streaming & Data</h4>
-                    <span className="text-[9px] font-mono text-emerald-400">Python / Kafka</span>
-                  </div>
-                  <p className="text-[10px] text-muted-foreground font-light leading-relaxed">Real-time parser engines & telemetry anomaly detection.</p>
-                </div>
-              </div>
-
-              {/* DevOps Eng */}
-              <div className="flex items-start gap-3 bg-foreground/[0.02] border border-border/20 p-3 rounded-2xl hover:border-primary/30 transition-all group">
-                <div className="h-8 w-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 shrink-0">
-                  <Activity className="h-4 w-4" />
-                </div>
-                <div className="space-y-1">
-                  <div className="flex items-center justify-between w-full">
-                    <h4 className="text-xs font-semibold text-foreground">Infrastructure & SRE</h4>
-                    <span className="text-[9px] font-mono text-amber-400">Terraform / CI/CD</span>
-                  </div>
-                  <p className="text-[10px] text-muted-foreground font-light leading-relaxed">Zero-touch deployments & high availability automation.</p>
-                </div>
-              </div>
-            </div>
+            <HeroAnimation />
           </motion.div>
         </section>
 
-        {/* Culture & Bento Grid Section */}
-        <section className="mt-24">
-          <header className="max-w-xl mb-12">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs uppercase tracking-[0.2em] mb-4">
-              <Users className="h-3.5 w-3.5" /> Team Culture
-            </div>
-            <h2 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">
+        {/* Culture & Compact Grid Section */}
+        <section className="mt-12">
+          <header className="mb-6">
+            <h2 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-foreground flex items-center gap-3">
+              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <Users className="h-4 w-4" />
+              </span>
               What it means to build with us.
             </h2>
           </header>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {culture.map((c, idx) => {
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {culture.map((c) => {
               const Icon = c.icon;
-              const isLarge = idx === 0 || idx === 3;
               return (
-                <div
-                  key={c.title}
-                  className={isLarge ? "md:col-span-2" : "md:col-span-1"}
-                >
+                <div key={c.title} className="col-span-1">
                   <GlassCard
                     hoverGlow={true}
-                    className="h-full flex flex-col justify-between border border-border/40 bg-card/35 backdrop-blur-md rounded-3xl p-8 hover:bg-card/55 hover:border-foreground/15 transition-all duration-300 relative overflow-hidden"
+                    className="h-full flex flex-col justify-between border border-border/40 bg-card/35 backdrop-blur-md rounded-2xl p-5 hover:bg-card/55 hover:border-foreground/15 transition-all duration-300 relative overflow-hidden"
                     style={{ "--glow": c.glowColor } as React.CSSProperties}
                   >
                     <div>
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-foreground/[0.02] border border-border/30 text-primary mb-6">
-                        <Icon className="h-6 w-6" />
+                      <div className="flex items-center gap-3 mb-2.5">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-foreground/[0.02] border border-border/30 text-primary shrink-0">
+                          <Icon className="h-4 w-4" />
+                        </div>
+                        <h3 className="font-display text-sm font-semibold text-foreground">{c.title}</h3>
                       </div>
-                      <h3 className="font-display text-lg font-semibold text-foreground">{c.title}</h3>
-                      <p className="mt-3 text-sm text-muted-foreground leading-relaxed font-light">{c.desc}</p>
+                      <p className="text-xs text-muted-foreground leading-relaxed font-light">{c.desc}</p>
                     </div>
                   </GlassCard>
                 </div>

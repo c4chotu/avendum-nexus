@@ -12,7 +12,7 @@ export const Route = createFileRoute("/projects/$slug")({
   },
   head: ({ loaderData }) => ({
     meta: [
-      { title: `${loaderData?.project.title ?? "Project"} — Avendum` },
+      { title: `${loaderData?.project.title ?? "Project"} - Avendum` },
       { name: "description", content: loaderData?.project.summary ?? "" },
       { property: "og:title", content: loaderData?.project.title ?? "" },
       { property: "og:description", content: loaderData?.project.summary ?? "" },
@@ -129,7 +129,7 @@ function ProjectDetail() {
           <GlassCard>
             <p className="font-display text-lg font-semibold">Have a similar project?</p>
             <p className="mt-2 text-sm text-muted-foreground">
-              Talk to one of our engineering leads — usually within a business day.
+              Talk to one of our engineering leads - usually within a business day.
             </p>
             <Link to="/contact" className="mt-4 inline-block">
               <BrandButton size="sm">Start a conversation</BrandButton>

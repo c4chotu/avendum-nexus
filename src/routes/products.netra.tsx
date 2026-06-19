@@ -15,11 +15,11 @@ import {
 export const Route = createFileRoute("/products/netra")({
   head: () => ({
     meta: [
-      { title: "NETRA — Network Planning & Deployment Automation | Avendum" },
+      { title: "NETRA - Network Planning & Deployment Automation | Avendum" },
       {
         name: "description",
         content:
-          "NETRA replaces fragmented Excel-based microwave planning with a centralized, role-aware platform — tracking every plan across its complete lifecycle.",
+          "NETRA replaces fragmented Excel-based microwave planning with a centralized, role-aware platform - tracking every plan across its complete lifecycle.",
       },
     ],
   }),
@@ -30,13 +30,13 @@ const capabilities = [
   {
     icon: Upload,
     title: "Multi-Rule Plan Validation",
-    desc: "Planners upload microwave designs directly. NETRA runs multi-rule check engines — verifying Pop IDs, nominal quarter coordinates, hop distance bounds, and link-type classifications instantly.",
+    desc: "Planners upload microwave designs directly. NETRA runs multi-rule check engines - verifying Pop IDs, nominal quarter coordinates, hop distance bounds, and link-type classifications instantly.",
     tags: ["Nominal Validation", "Pop Presence Check", "Coordinate Bounds"]
   },
   {
     icon: BarChart3,
     title: "Ageing & Bottleneck Analytics",
-    desc: "Automated age-bucket categorization helps managers identify pending tasks. Views are scoped dynamically: circle leads see national bottlenecks, while partner teams see only active assignments.",
+    desc: "Automated age-bucket categorization helps managers identify pending tasks. Views are scoped dynamically: region leads see bottlenecks on a larger scale, while partner teams see only active assignments.",
     tags: ["Ageing Buckets", "Team SLA Alerting", "Ops Bottlenecks"]
   },
   {
@@ -55,10 +55,10 @@ const capabilities = [
 
 const roles = [
   { name: "MW Planner", desc: "Uploads design plans, runs coordinate checks, signs off designs, manages holds and cancellations." },
-  { name: "Circle Deployment", desc: "Coordinates material gathering, surveys site readiness, assigns installations to local partners." },
+  { name: "Region Deployment", desc: "Coordinates material gathering, surveys site readiness, assigns installations to local partners." },
   { name: "I&C Partner", desc: "Performs site installation or dismantling, uploads physical deployment proof and system inputs." },
   { name: "AT Desk (MS Partner)", desc: "Validates physical and software acceptance test stages, reviewing logs and checklist images." },
-  { name: "Circle Operations", desc: "Gatekeeper for traffic shifting. Runs BGP/IP validation and handles final service activation." },
+  { name: "Region Operations", desc: "Gatekeeper for traffic shifting. Runs BGP/IP validation and handles final service activation." },
   { name: "Warehouse Manager", desc: "Performs intake audits for dismantled hardware, verifying serials against the decommissioning sheet." }
 ];
 
@@ -97,7 +97,7 @@ const deploymentSteps = [
   },
   {
     step: "05",
-    role: "Circle Ops",
+    role: "Region Ops",
     title: "Traffic Shifting Gate",
     desc: "Operations team checks IP routes and technology configuration. If verified, traffic shifts to new link. Otherwise, returned to Planner.",
     icon: ArrowLeftRight,
@@ -108,7 +108,7 @@ const deploymentSteps = [
 const shiftSteps = [
   {
     step: "01",
-    role: "Circle Operations",
+    role: "Region Operations",
     title: "Configuration Check",
     desc: "Ingests the configured plan details, verifying IP allocations and target technology bindings.",
     icon: ShieldCheck
@@ -122,7 +122,7 @@ const shiftSteps = [
   },
   {
     step: "03",
-    role: "Circle Operations",
+    role: "Region Operations",
     title: "Traffic Shift / Hold / Cancel",
     desc: "Ops triggers live traffic cutover. If issues arise, Ops can place the plan on Hold or execute complete Plan Cancellation.",
     icon: Activity
@@ -142,8 +142,8 @@ const mwKPIs = {
     { label: "Optimized Upgrade", val: 10, color: "#0F9F6E" },
     { label: "Active In Progress", val: 39, color: "var(--accent)" },
   ],
-  circles: [
-    { name: "Metropolitan Circle", val: 91 },
+  regions: [
+    { name: "Metropolitan Region", val: 91 },
     { name: "Central Region", val: 89 },
     { name: "Coastal Zone", val: 76 },
   ]
@@ -162,8 +162,8 @@ const ubrKPIs = {
     { label: "Optimized Upgrade", val: 18, color: "#0F9F6E" },
     { label: "Active In Progress", val: 24, color: "var(--accent)" },
   ],
-  circles: [
-    { name: "Metropolitan Circle", val: 87 },
+  regions: [
+    { name: "Metropolitan Region", val: 87 },
     { name: "Central Region", val: 82 },
     { name: "Coastal Zone", val: 65 },
   ]
@@ -191,7 +191,7 @@ const workflowSteps = {
     {
       id: "deployment",
       label: "Deployment",
-      role: "Circle Deployment Team",
+      role: "Region Deployment Team",
       badge: "Material Prep",
       badgeColor: "#F59E0B",
       title: "Task Allocation & Materials",
@@ -239,7 +239,7 @@ const workflowSteps = {
     {
       id: "operations",
       label: "Operations",
-      role: "Circle Operations",
+      role: "Region Operations",
       badge: "Traffic Shift Gate",
       badgeColor: "#BE185D",
       title: "Live Circuit Cutover",
@@ -257,11 +257,11 @@ const workflowSteps = {
     {
       id: "config_check",
       label: "Config Check",
-      role: "Circle Operations",
+      role: "Region Operations",
       badge: "IP Verify",
       badgeColor: "#1A6FD4",
       title: "IP & Interface Verification",
-      desc: "Circle Operations ingests configured plan parameters, checks IP address bindings, port allocation, and technology compatibility.",
+      desc: "Region Operations ingests configured plan parameters, checks IP address bindings, port allocation, and technology compatibility.",
       checkpoints: ["IP allocation check", "Port mapping validation", "Tech compatibility check"],
       logs: [
         { cls: "text-muted-foreground", txt: "Ingesting router interface profiles..." },
@@ -289,7 +289,7 @@ const workflowSteps = {
     {
       id: "shift_gate",
       label: "Shift Gate",
-      role: "Circle Operations",
+      role: "Region Operations",
       badge: "Live Cutover",
       badgeColor: "#BE185D",
       title: "Traffic Redirection & Shift",
@@ -582,14 +582,14 @@ function NetraPage() {
         <div>
           <span className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs font-semibold text-primary bg-primary/10 border border-primary/25 mb-6">
             <span className="h-1.5 w-1.5 rounded-full bg-[#059669] animate-pulse" />
-            Active in Production — Network Wide
+            Active in Production - Network Wide
           </span>
           <p className="text-xs uppercase tracking-[0.3em] text-primary font-bold">NETRA Platform</p>
           <h1 className="mt-3 font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight">
             Network Planning & <br /><span className="text-gradient">Deployment Automation</span>
           </h1>
           <p className="mt-5 text-muted-foreground leading-relaxed text-base max-w-2xl font-light">
-            NETRA replaces fragmented, spreadsheet-based deployment planning with a centralized, role-aware platform. It tracks every transmission plan across its complete lifecycle — from design upload and validation to multi-partner acceptance testing, circle-level traffic shifting, and coordinated dual-site dismantling.
+            NETRA replaces fragmented, spreadsheet-based deployment planning with a centralized, role-aware platform. It tracks every transmission plan across its complete lifecycle - from design upload and validation to multi-partner acceptance testing, regional traffic shifting, and coordinated dual-site dismantling.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/demo" search={{ product: "mids" }}><BrandButton>Request NETRA Demo <ArrowRight className="h-4 w-4" /></BrandButton></Link>
@@ -606,7 +606,7 @@ function NetraPage() {
           <GlassCard gradientBorder className="p-5 relative overflow-hidden">
             <div className="flex items-center justify-between border-b border-border/20 pb-3 mb-4">
               <div>
-                <span className="text-[10px] font-mono font-bold tracking-widest text-primary uppercase">Circle Databases</span>
+                <span className="text-[10px] font-mono font-bold tracking-widest text-primary uppercase">Region Databases</span>
                 <h2 className="text-sm font-bold font-display text-foreground mt-0.5">Active Telemetry</h2>
               </div>
               <div className="flex bg-foreground/5 rounded-lg p-0.5 border border-border/30">
@@ -666,9 +666,9 @@ function NetraPage() {
               </div>
 
               <div className="bg-foreground/5 border border-border/20 rounded-xl p-3 hover:shadow-[0_0_15px_rgba(var(--primary),0.05)] transition-all">
-                <div className="text-[9px] font-bold uppercase tracking-wider text-muted-foreground mb-3">Circle Progress</div>
+                <div className="text-[9px] font-bold uppercase tracking-wider text-muted-foreground mb-3">Region Progress</div>
                 <div className="space-y-2.5">
-                  {kpiData.circles.map((item) => (
+                  {kpiData.regions.map((item) => (
                     <div key={item.name}>
                       <div className="flex justify-between text-[9px] text-muted-foreground mb-0.5">
                         <span>{item.name}</span>
@@ -695,7 +695,7 @@ function NetraPage() {
       <section className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
         {[
           { title: "Centralized Rule Checks", desc: "Validates coordinate offsets, near/far-end bindings, and Pop overlaps automatically on plan upload." },
-          { title: "Role-Scoped Lifecycles", desc: "Orchestrates task assignments across MW Planners, Circle Deployment, I&C Partners, and circle operations." },
+          { title: "Role-Scoped Lifecycles", desc: "Orchestrates task assignments across MW Planners, Region Deployment, I&C Partners, and region operations." },
           { title: "Acceptance Test Verification", desc: "Integrates physical photo proof audits with soft validation ping logs into a single sign-off desk." },
           { title: "Traffic Shift Gatekeepers", desc: "Ensures no traffic shifts are executed without active technology, configuration, and routing checks." }
         ].map((item, i) => (
@@ -715,13 +715,13 @@ function NetraPage() {
           Explore the lifecycle of <span className="text-gradient">network plans</span>
         </h2>
         <p className="mt-4 text-muted-foreground text-sm leading-relaxed max-w-3xl">
-          NETRA orchestrates three critical lifecycles inside the circle operations floor. Select a flow below to trace the steps, assignees, and decision loops.
+          NETRA orchestrates three critical lifecycles inside the region operations floor. Select a flow below to trace the steps, assignees, and decision loops.
         </p>
 
         {/* Workflow Switcher Tabs */}
         <div className="mt-8 flex flex-wrap gap-2 border-b border-border/20 pb-3">
           {[
-            { id: "deployment", label: "1. Deployment Lifecycle Flow", desc: "From MW plan upload to Circle Operations" },
+            { id: "deployment", label: "1. Deployment Lifecycle Flow", desc: "From MW plan upload to Region Operations" },
             { id: "shifting", label: "2. Traffic Shifting Flow", desc: "IP verification & rollback controls" },
             { id: "dismantle", label: "3. Dual-Site Decommissioning", desc: "Coordinated dismantle tracking" }
           ].map((flow) => (
@@ -980,7 +980,7 @@ function NetraPage() {
         {/* Simulator Main Grid */}
         <div className="grid lg:grid-cols-[1fr_1.3fr] gap-8 items-stretch">
           
-          {/* LEFT — Steps Accordion (NETiQ Style) */}
+          {/* LEFT - Steps Accordion (NETiQ Style) */}
           <div className="space-y-3">
             {activeSteps.map((step, idx) => {
               const isActive = netraPhase === idx;
@@ -1069,7 +1069,7 @@ function NetraPage() {
             })}
           </div>
 
-          {/* RIGHT — Visual HUD / Excel Report + Terminal Logs */}
+          {/* RIGHT - Visual HUD / Excel Report + Terminal Logs */}
           <div className="flex flex-col gap-5">
             <GlassCard gradientBorder className="p-6 relative flex flex-col justify-between overflow-hidden bg-surface-2/10 shadow-2xl min-h-[300px]">
               
@@ -1588,7 +1588,7 @@ function NetraPage() {
           Unified coordination, <span className="text-gradient">scoped permissions</span>.
         </h2>
         <p className="mt-4 text-muted-foreground leading-relaxed max-w-3xl font-light text-sm">
-          NETRA coordinates actions across internal planning teams, circle deployment engineers, third-party installation partners, and circle operations leads.
+          NETRA coordinates actions across internal planning teams, region deployment engineers, third-party installation partners, and region operations leads.
         </p>
 
         <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -1617,7 +1617,7 @@ function NetraPage() {
       <section className="mt-28">
         <p className="text-xs uppercase tracking-[0.3em] text-primary font-bold">Core Capabilities</p>
         <h2 className="mt-3 font-display text-3xl sm:text-4xl font-semibold">
-          Designed for <span className="text-gradient">circle operations floor</span>
+          Designed for <span className="text-gradient">region operations floor</span>
         </h2>
         <div className="mt-10 grid md:grid-cols-2 gap-6">
           {capabilities.map((c, i) => {
@@ -1665,7 +1665,7 @@ function NetraPage() {
             <div className="relative">
               <h2 className="font-display text-3xl font-bold">Stop tracking MW deployments in Excel.</h2>
               <p className="mt-3 text-sm text-muted-foreground max-w-xl mx-auto font-light">
-                Talk to our team about deploying NETRA for your circle networks — we&apos;ll walk through automated template setup, partner provisioning, and operations configuration.
+                Talk to our team about deploying NETRA for your regional networks - we&apos;ll walk through automated template setup, partner provisioning, and operations configuration.
               </p>
               <div className="mt-6 flex flex-wrap gap-3 justify-center">
                 <Link to="/demo" search={{ product: "mids" }}><BrandButton>Request NETRA Demo</BrandButton></Link>

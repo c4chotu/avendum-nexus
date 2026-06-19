@@ -13,7 +13,7 @@ import { GlassCard } from "@/components/GlassCard";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "What We Build — Avendum Technologies" },
+      { title: "What We Build - Avendum Technologies" },
       { name: "description", content: "Platform engineering, custom dashboards, API integrations, and telecom AI automation capabilities." },
     ],
   }),

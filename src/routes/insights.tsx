@@ -5,13 +5,13 @@ import { GlassCard } from "@/components/GlassCard";
 export const Route = createFileRoute("/insights")({
   head: () => ({
     meta: [
-      { title: "Insights — Avendum Technologies" },
+      { title: "Insights - Avendum Technologies" },
       {
         name: "description",
         content:
           "Field notes on telecom AI, autonomous networks, and the engineering patterns behind carrier-grade software.",
       },
-      { property: "og:title", content: "Insights — Avendum Technologies" },
+      { property: "og:title", content: "Insights - Avendum Technologies" },
       { property: "og:description", content: "Field notes on telecom AI from Avendum." },
       { property: "og:url", content: "/insights" },
     ],
@@ -26,7 +26,7 @@ const posts = [
     tag: "AI Operations",
     title: "Closed-loop NOC: the architecture that finally killed our alert fatigue",
     excerpt:
-      "Why correlation alone isn't enough — and how policy-driven remediation reshapes the on-call rotation.",
+      "Why correlation alone isn't enough - and how policy-driven remediation reshapes the on-call rotation.",
     read: "8 min read",
     date: "Mar 2026",
   },
@@ -71,7 +71,7 @@ const posts = [
     tag: "Engineering Org",
     title: "Embedded pods: the operating model behind our delivery velocity",
     excerpt:
-      "How we structure senior pods that ship production code in week one — and the trade-offs nobody talks about.",
+      "How we structure senior pods that ship production code in week one - and the trade-offs nobody talks about.",
     read: "5 min read",
     date: "Oct 2025",
   },
@@ -83,7 +83,7 @@ function InsightsPage() {
       <div className="max-w-3xl">
         <p className="text-xs uppercase tracking-[0.3em] text-primary">Insights · Field notes</p>
         <h1 className="mt-3 font-display text-4xl sm:text-5xl font-semibold leading-tight">
-          Notes from the wire — <span className="text-gradient">telecom AI in production</span>.
+          Notes from the wire - <span className="text-gradient">telecom AI in production</span>.
         </h1>
         <p className="mt-5 text-muted-foreground">
           Honest write-ups from our engineering teams: what worked, what we threw away, and what we

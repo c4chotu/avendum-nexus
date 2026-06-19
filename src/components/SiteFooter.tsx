@@ -4,7 +4,7 @@ import logo from "@/assets/site/logo.svg";
 
 export function SiteFooter() {
   return (
-    <footer className="relative mt-32 border-t border-border">
+    <footer className="relative mt-5 border-t border-border">
       <div className="mx-auto max-w-7xl px-6 py-14 grid gap-10 md:grid-cols-5">
         {/* Info Column */}
         <div className="md:col-span-2">

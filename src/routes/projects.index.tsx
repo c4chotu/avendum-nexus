@@ -6,13 +6,13 @@ import { GlassCard } from "@/components/GlassCard";
 export const Route = createFileRoute("/projects/")({
   head: () => ({
     meta: [
-      { title: "Projects — Avendum Technologies" },
+      { title: "Projects - Avendum Technologies" },
       {
         name: "description",
         content:
           "Selected work: autonomous NOC, multi-vendor transport orchestration, smart-city edge intelligence, and carrier-grade data platforms.",
       },
-      { property: "og:title", content: "Projects — Avendum Technologies" },
+      { property: "og:title", content: "Projects - Avendum Technologies" },
       { property: "og:description", content: "Selected telecom AI work from Avendum Technologies." },
       { property: "og:url", content: "/projects" },
     ],
@@ -31,7 +31,7 @@ function ProjectsPage() {
           neutral hosts, and smart cities.
         </h1>
         <p className="mt-5 text-muted-foreground">
-          A small sample of platforms we&apos;ve built in production — from autonomous NOCs to
+          A small sample of platforms we&apos;ve built in production - from autonomous NOCs to
           edge-native city twins.
         </p>
       </div>

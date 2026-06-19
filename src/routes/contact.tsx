@@ -18,10 +18,10 @@ export const Route = createFileRoute("/contact")({
   validateSearch: (search) => contactSearchSchema.parse(search),
   head: () => ({
     meta: [
-      { title: "Contact & Request Demo — Avendum Technologies" },
+      { title: "Contact & Request Demo - Avendum Technologies" },
       { 
         name: "description", 
-        content: "Let's talk about your network. Request a demo, ask about AMC, or just reach out — our team responds within 2 business days." 
+        content: "Let's talk about your network. Request a demo, ask about AMC, or just reach out - our team responds within 2 business days." 
       },
     ],
   }),
@@ -41,7 +41,7 @@ const offices = [
   },
   {
     city: "Canada",
-    country: "Sales Office — North America",
+    country: "Sales Office - North America",
     address: "Toronto, Ontario, Canada",
     phone: "",
     email: "info@avendumtech.com",
@@ -117,7 +117,7 @@ function ContactPage() {
           Let&apos;s talk about <span className="text-gradient">your network</span>.
         </h1>
         <p className="mt-5 text-muted-foreground text-lg">
-          Request a demo, ask about AMC, or just reach out — our team responds within 2 business days.
+          Request a demo, ask about AMC, or just reach out - our team responds within 2 business days.
         </p>
       </header>
 

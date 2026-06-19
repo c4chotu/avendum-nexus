@@ -16,7 +16,7 @@ export const Route = createFileRoute("/demo")({
   validateSearch: (search) => demoSearchSchema.parse(search),
   head: () => ({
     meta: [
-      { title: "Book a Demo — Avendum Technologies" },
+      { title: "Book a Demo - Avendum Technologies" },
       { 
         name: "description", 
         content: "Schedule an interactive walk-through of NETRA, NEXUS, or NETIQ, mapped directly to your network's operational challenges." 

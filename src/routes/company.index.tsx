@@ -15,7 +15,7 @@ import {
 export const Route = createFileRoute("/company/")({
   head: () => ({
     meta: [
-      { title: "About Us — Avendum Technologies" },
+      { title: "About Us - Avendum Technologies" },
       {
         name: "description",
         content: "Built by telecom practitioners, for telecom teams. Avendum Technologies develops mission-critical enterprise platforms for the telecommunications industry."
@@ -25,57 +25,16 @@ export const Route = createFileRoute("/company/")({
   component: CompanyPage,
 });
 
-const milestones = [
-  {
-    year: "2020",
-    icon: Rocket,
-    title: "Company Founded",
-    desc: "Avendum Technologies incorporated in Gurgaon, India. Core team assembled from operators and network engineering backgrounds.",
-    domain: "Foundation",
-  },
-  {
-    year: "2021",
-    icon: Tower,
-    title: "NETRA Planning Platform — Live",
-    desc: "NETRA (Network Planning & Deployment Automation) deployed at national scale. Replaced Excel-based planning with role-aware, validation-driven workflows.",
-    domain: "MW / RAN",
-  },
-  {
-    year: "2022",
-    icon: Signal,
-    title: "IP & VLAN Automation Module",
-    desc: "Expanded into full IP provisioning lifecycle — dual-stack IPv4/IPv6 allocation, ATOM tunnel automation, and Cygnet Tx integration for POP detection.",
-    domain: "IP / Core",
-  },
-  {
-    year: "2023",
-    icon: Search,
-    title: "NETiQ — Network Intelligence Platform",
-    desc: "NETiQ launched: a multi-domain configuration audit engine spanning RAN, MW, UBR, Wireline, Router, and Core. First platform to stitch cross-domain topology from raw NMS dumps.",
-    domain: "All Domains",
-  },
-  {
-    year: "2024",
-    icon: Cpu,
-    title: "AI & ML Integration — Labs",
-    desc: "Avendum Labs initiated. ML drift-prediction, GenAI CLI translator prototypes, and predictive OSS configuration assurance research programmes begin.",
-    domain: "AI / OSS",
-  },
-  {
-    year: "2025",
-    icon: Globe,
-    title: "North America Expansion",
-    desc: "Toronto sales office opened. International client pipeline established across EMEA and North America for NETiQ and NETRA platform licensing.",
-    domain: "Global",
-  },
-];
+
+
+
 
 const philosophy = [
   {
     icon: Target,
     label: "Domain Focus",
     title: "Domain-built, not adapted",
-    body: "Every workflow, validation rule, and dashboard reflects how network planning and NMS auditing actually work — built with the teams who do it, not from a generic enterprise template. We speak the language of CM dumps, PCI allocations, and NMS parameter matrices.",
+    body: "Every workflow, validation rule, and dashboard reflects how network planning and NMS auditing actually work - built with the teams who do it, not from a generic enterprise template. We speak the language of CM dumps, PCI allocations, and NMS parameter matrices.",
   },
   {
     icon: TrendingUp,
@@ -87,44 +46,21 @@ const philosophy = [
     icon: ShieldCheck,
     label: "Trust",
     title: "Deliver on every commitment",
-    body: "If it's in the support program, it's in the program. If we say go-live is a date, that's the date. Our clients return because we keep our word — no surprises at handover, no scope creep after contract sign.",
+    body: "If it's in the support program, it's in the program. If we say go-live is a date, that's the date. Our clients return because we keep our word - no surprises at handover, no scope creep after contract sign.",
   },
   {
     icon: Users,
     label: "User Centric",
     title: "Customer team at the centre",
-    body: "Our vision is to put customer teams at the epicentre of enterprise software — enabling and easing the work for the people who actually use these systems. Every UI decision is reviewed by network engineers, not just designers.",
+    body: "Our vision is to put customer teams at the epicentre of enterprise software - enabling and easing the work for the people who actually use these systems. Every UI decision is reviewed by network engineers, not just designers.",
   },
 ];
-
-const team = [
-  {
-    name: "Ankit Bhardwaj",
-    role: "Co-Founder & Product Lead",
-    bio: "Architect of our planning platforms. Deep expertise in network planning, configuration management, and large-scale deployment automation across RAN and Microwave domains.",
-    domains: ["MW Planning", "RAN", "IP Provisioning"],
-  },
-  {
-    name: "Pradeep Kumar",
-    role: "Co-Founder & Technical Lead",
-    bio: "Lead architect of NETiQ. Network domain expert with hands-on experience across multi-vendor NMS environments, configuration audit, and cross-domain stitching.",
-    domains: ["NMS Audit", "RAN/Core", "OSS"],
-  },
-  {
-    name: "Ankit Singhal",
-    role: "Product Manager",
-    bio: "Drives planning product strategy. Expert in rollout coordination, provisioning workflows, and network lifecycle management — from design to decommission.",
-    domains: ["NETRA", "Lifecycle Mgmt", "IP"],
-  },
-];
-
-
 
 const techStack = [
   { layer: "Ingestion Layer", items: ["XML / RAML / CSV Parser", "Multi-Vendor Adapters", "NMS Export Connectors", "REST / SFTP Fetch"], color: "#7C3AED" },
   { layer: "Intelligence Core", items: ["Audit Rules Engine", "Graph Correlation DB", "ML Drift Predictor", "Topology Stitching"], color: "#2563EB" },
-  { layer: "Integration Bus", items: ["OSS Northbound APIs", "BSS Order Feeds", "CMDB Sync", "NMS Bidirectional"], color: "#059669" },
-  { layer: "Presentation", items: ["React SPA Dashboard", "Role-Based Access", "Report Generator", "API Gateway"], color: "#D97706" },
+  { layer: "Integration Bus", items: [ "BsS line - scheduled dump fetch","minimal integration", "NMS Bidirectional"], color: "#059669" },
+  { layer: "Presentation", items: ["react SP","executive dashboard", "Report Generator", "API Gateway"], color: "#D97706" },
 ];
 
 const standards = [
@@ -171,7 +107,6 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
 }
 
 function CompanyPage() {
-  const [activeMilestone, setActiveMilestone] = useState(0);
   const [activePhilo, setActivePhilo] = useState(0);
 
   // Auto-advance philosophy
@@ -198,7 +133,7 @@ function CompanyPage() {
             Built by telecom<br />practitioners,<br /><span className="text-gradient">for telecom teams.</span>
           </h1>
           <p className="mt-5 text-muted-foreground leading-relaxed text-base max-w-xl font-light">
-            Avendum Technologies develops mission-critical enterprise platforms for the telecommunications industry — software built natively for network planning, provisioning, and NMS auditing across every domain layer.
+            Avendum Technologies develops mission-critical enterprise platforms for the telecommunications industry - software built natively for network planning, provisioning, and NMS auditing across every domain layer.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/careers"><BrandButton>Join Our Team</BrandButton></Link>
@@ -253,7 +188,7 @@ function CompanyPage() {
               </div>
               <h3 className="font-display text-lg font-bold text-foreground">Who We Are</h3>
               <p className="text-xs text-muted-foreground mt-3 leading-relaxed font-light">
-                Avendum is founded and staffed by telecom practitioners — engineers who spent decades designing radio networks, resolving BGP routing mismatches, and configuring microwave hops for India’s largest tier-1 operators. We saw first-hand the limits of using legacy spreadsheets and generic SaaS tools to manage national-scale networks. We translate real field expertise into enterprise-grade automation.
+                Avendum is founded and staffed by telecom practitioners - engineers who spent decades designing radio networks, resolving BGP routing mismatches, and configuring microwave hops for India's largest tier-1 operators. We saw first-hand the limits of using legacy spreadsheets and generic SaaS tools to manage networks on a larger scale. We translate real field expertise into enterprise-grade automation.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-border/25 flex items-center gap-1.5 text-xs text-primary font-semibold">
@@ -270,7 +205,7 @@ function CompanyPage() {
               </div>
               <h3 className="font-display text-lg font-bold text-foreground">What We Do</h3>
               <p className="text-xs text-muted-foreground mt-3 leading-relaxed font-light">
-                We develop purpose-built OSS integration software that acts as an independent network intelligence layer. Our flagship platforms — NETiQ and NETRA — normalize raw, multi-vendor NMS configuration dumps, run comprehensive validation checks, and automatically stitch complex topologies. We bridge the gap between logical design databases, live physical realities, and BSS order engines.
+                We develop purpose-built OSS integration software that acts as an independent network intelligence layer. Our flagship platforms - NETiQ and NETRA - normalize raw, multi-vendor NMS configuration dumps, run comprehensive validation checks, and automatically stitch complex topologies. We bridge the gap between logical design databases, live physical realities, and OSS engines.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-border/25 flex items-center gap-1.5 text-xs text-[#0F9F6E] font-semibold">
@@ -279,26 +214,26 @@ function CompanyPage() {
             </div>
           </GlassCard>
 
-          {/* How Everything is Handled Card */}
+          {/* Our Story Card */}
           <GlassCard gradientBorder className="p-6 flex flex-col justify-between hover:shadow-[0_0_30px_rgba(124,58,237,0.08)] transition-all">
             <div>
               <div className="h-10 w-10 rounded-xl bg-[#0891B2]/10 text-[#0891B2] flex items-center justify-center mb-5 border border-[#0891B2]/20">
-                <Workflow className="h-5 w-5" />
+                <GitBranch className="h-5 w-5" />
               </div>
-              <h3 className="font-display text-lg font-bold text-foreground">How Everything is Handled</h3>
+              <h3 className="font-display text-lg font-bold text-foreground">Our Story</h3>
               <p className="text-xs text-muted-foreground mt-3 leading-relaxed font-light">
-                We manage the end-to-end integration lifecycle directly. Daily raw dumps are fetched securely via SFTP/REST interfaces. Out-of-box adapters normalize dialects across Ericsson, Nokia, and Huawei. We run nightly compliance check sweeps, generate delta reports, and automatically generate and push corrective CLI patches via secure SSH/NBI gateways, backed by active AMC operator support.
+                Our journey is defined by delivering specialized platforms and advisory services. From our signature products, NETiQ, NETRA, Program management and Telecom Consultancy, to our comprehensive program management and telecom consultancy, we help operators navigate complex network evolutions and deployment lifecycles with absolute precision.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-border/25 flex items-center gap-1.5 text-xs text-[#0891B2] font-semibold">
               <span className="h-1.5 w-1.5 rounded-full bg-[#0891B2] animate-pulse" />
-              Secure, managed operations loops
+              NETiQ, NETRA, Program managmennt , Telecom Consultancy
             </div>
           </GlassCard>
         </div>
       </section>
 
-      {/* ── OSS/BSS ARCHITECTURE ── */}
+      {/* ── OSS ARCHITECTURE ── */}
       <section className="mt-28 relative overflow-hidden rounded-3xl border border-border/30 bg-gradient-to-br from-surface/40 via-background to-surface/20 p-8 md:p-12">
         {/* BG decoration */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#7C3AED]/5 via-transparent to-[#2563EB]/5" />
@@ -307,10 +242,10 @@ function CompanyPage() {
         <div className="relative">
           <p className="text-xs uppercase tracking-[0.3em] text-primary font-bold">Platform Architecture</p>
           <h2 className="mt-3 font-display text-3xl sm:text-4xl font-semibold">
-            OSS/BSS integration <span className="text-gradient">from end to end</span>
+            OSS integration <span className="text-gradient">from end to end</span>
           </h2>
           <p className="mt-4 text-muted-foreground text-sm leading-relaxed max-w-2xl">
-            Avendum's layered architecture connects raw NMS exports to actionable business intelligence — spanning every layer from physical ingestion to executive reporting.
+            Avendum's layered architecture connects raw NMS exports to actionable business intelligence - spanning every layer from physical ingestion to executive reporting.
           </p>
 
           <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -364,11 +299,11 @@ function CompanyPage() {
               Built on <span className="text-gradient">telecom standards</span>
             </h2>
             <p className="mt-4 text-muted-foreground text-sm leading-relaxed">
-              Our platforms implement industry-standard interfaces and data models — ensuring compatibility with existing operator toolchains, OSS systems, and multi-vendor NMS environments without custom integration effort.
+              Our platforms implement industry-standard interfaces and data models - ensuring compatibility with existing operator toolchains, OSS systems, and multi-vendor NMS environments with minimal integration.
             </p>
             <div className="mt-8 space-y-3">
               {[
-                { icon: Shield, title: "Air-Gapped Ready", desc: "Deployable in fully isolated operator private clouds — no data egress." },
+                { icon: Shield, title: "Air-Gapped Ready", desc: "Deployable in fully isolated operator private clouds - no data egress." },
                 { icon: Lock, title: "Role-Based Access", desc: "Granular RBAC across planner, validator, auditor, and executive roles." },
                 { icon: Database, title: "Audit Trail", desc: "Full immutable audit log for every configuration change and approval." },
               ].map((item, i) => {
@@ -414,66 +349,7 @@ function CompanyPage() {
         </div>
       </section>
 
-      {/* ── STORY & TIMELINE ── */}
-      <section className="mt-28">
-        <div className="text-center mb-12">
-          <p className="text-xs uppercase tracking-[0.3em] text-primary font-bold">Our Journey</p>
-          <h2 className="mt-3 font-display text-3xl sm:text-4xl font-semibold">
-            From idea to <span className="text-gradient">national-scale production</span>
-          </h2>
-        </div>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-[50%] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-border/50 to-transparent hidden lg:block" />
-
-          <div className="space-y-4">
-            {milestones.map((m, i) => {
-              const Icon = m.icon;
-              const isActive = activeMilestone === i;
-              const isLeft = i % 2 === 0;
-              return (
-                <motion.button
-                  key={m.title}
-                  onClick={() => setActiveMilestone(i)}
-                  className="w-full"
-                  whileHover={{ scale: 1.005 }}
-                >
-                  <div className={`relative flex gap-0 lg:gap-8 ${isLeft ? "lg:flex-row" : "lg:flex-row-reverse"} items-center`}>
-                    {/* Card */}
-                    <div className={`flex-1 p-5 rounded-2xl border text-left transition-all duration-300 ${
-                      isActive
-                        ? "border-primary/40 bg-primary/8 shadow-lg shadow-primary/10"
-                        : "border-border/30 bg-surface/20 hover:bg-foreground/5"
-                    }`}>
-                      <div className="flex items-center gap-3 mb-2">
-                        <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded border ${isActive ? "border-primary/40 text-primary bg-primary/10" : "border-border/40 text-muted-foreground"}`}>
-                          {m.year}
-                        </span>
-                        <span className={`text-[9px] font-mono px-2 py-0.5 rounded-full border ${isActive ? "border-accent/40 text-accent bg-accent/10" : "border-border/30 text-muted-foreground"}`}>
-                          {m.domain}
-                        </span>
-                      </div>
-                      <h3 className={`font-display font-bold text-base ${isActive ? "text-primary" : "text-foreground"}`}>{m.title}</h3>
-                      <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">{m.desc}</p>
-                    </div>
-
-                    {/* Center dot — only on lg */}
-                    <div className={`relative z-10 hidden lg:flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 transition-all ${
-                      isActive ? "border-primary bg-primary text-white shadow-[0_0_20px_rgba(var(--primary),0.5)]" : "border-border/60 bg-background text-muted-foreground"
-                    }`}>
-                      <Icon className="h-4 w-4" />
-                    </div>
-
-                    {/* Empty spacer for alternating layout */}
-                    <div className="flex-1 hidden lg:block" />
-                  </div>
-                </motion.button>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
       {/* ── PHILOSOPHY ── */}
       <section className="mt-28">
@@ -535,67 +411,7 @@ function CompanyPage() {
         </div>
       </section>
 
-      {/* ── LEADERSHIP ── */}
-      <section className="mt-28">
-        <p className="text-xs uppercase tracking-[0.3em] text-primary">Leadership</p>
-        <h2 className="mt-3 font-display text-3xl sm:text-4xl font-semibold">
-          The team behind <span className="text-gradient">the platforms</span>.
-        </h2>
-        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {team.map((p, i) => (
-            <motion.div
-              key={p.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              whileHover={{ scale: 1.02, translateY: -4 }}
-            >
-              <GlassCard gradientBorder className="flex flex-col h-full hover:shadow-[0_0_25px_rgba(124,58,237,0.1)] transition-all">
-                <div className="relative mb-5 aspect-square rounded-2xl bg-gradient-to-br from-primary/30 via-accent/15 to-transparent flex items-center justify-center">
-                  <span className="font-display text-5xl font-semibold text-foreground/85">
-                    {p.name.split(" ").map((s) => s[0]).join("")}
-                  </span>
-                  <span className="absolute bottom-2 right-2 h-2 w-2 rounded-full bg-accent shadow-[0_0_10px_var(--accent)]" />
-                </div>
-                <h3 className="font-display text-lg font-bold">{p.name}</h3>
-                <p className="text-xs uppercase tracking-[0.2em] text-primary mt-1">{p.role}</p>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed flex-1">{p.bio}</p>
-                <div className="mt-4 pt-3 border-t border-border/30 flex flex-wrap gap-1">
-                  {p.domains.map(d => (
-                    <span key={d} className="text-[9px] font-mono px-1.5 py-0.5 rounded border border-border/50 text-muted-foreground">{d}</span>
-                  ))}
-                </div>
-              </GlassCard>
-            </motion.div>
-          ))}
 
-          {/* Join Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            whileHover={{ scale: 1.02, translateY: -4 }}
-          >
-            <GlassCard gradientBorder className="flex flex-col h-full hover:shadow-[0_0_25px_rgba(124,58,237,0.1)] transition-all">
-              <div className="relative mb-5 aspect-square rounded-2xl bg-gradient-to-br from-primary/20 via-accent/10 to-transparent flex items-center justify-center">
-                <span className="font-display text-5xl font-semibold text-foreground/50">+</span>
-              </div>
-              <h3 className="font-display text-lg font-bold">Join Our Team</h3>
-              <p className="text-xs uppercase tracking-[0.2em] text-primary mt-1">Open Positions</p>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed flex-1">
-                We're building our team of domain experts, engineers, and product thinkers. See open roles and apply.
-              </p>
-              <div className="mt-4 pt-3 border-t border-border/40">
-                <Link to="/careers" className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:gap-2.5 transition-all">
-                  View Roles <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            </GlassCard>
-          </motion.div>
-        </div>
-      </section>
 
       {/* ── OFFICES ── */}
       <section className="mt-28">
@@ -659,7 +475,7 @@ function CompanyPage() {
               <div className="p-6">
                 <div className="flex items-center gap-2">
                   <span className="text-xl">🇨🇦</span>
-                  <span className="text-xs font-bold uppercase tracking-widest text-primary">Sales Office — North America</span>
+                  <span className="text-xs font-bold uppercase tracking-widest text-primary">Sales Office - North America</span>
                 </div>
                 <h3 className="font-display text-lg font-bold mt-2">Toronto, Canada</h3>
                 <div className="mt-3 space-y-2 text-xs text-muted-foreground">

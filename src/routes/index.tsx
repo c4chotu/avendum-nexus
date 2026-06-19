@@ -114,8 +114,8 @@ const whyAvendum = [
   },
   {
     step: "03",
-    title: "Proven in production",
-    desc: "Deployable at national scale for large operators. NETiQ is actively integrated for automated parsing and compliance check loops. Production-tested, enterprise-grade software.",
+    title: "Deployment ready",
+    desc: "Deployable on larger scale for large operators. NETiQ is actively integrated for automated parsing and compliance check loops. Production-tested, enterprise-grade software.",
   },
   {
     step: "04",
@@ -240,12 +240,12 @@ const labsInitiatives = [
   {
     id: "ai_activation",
     title: "AI Order Activation Orchestrator",
-    focus: "Intelligent BSS/OSS Billing & Provisioning Link",
+    focus: "Intelligent OSS Integration & Provisioning Link",
     status: "ACTIVE RESEARCH",
     color: "#1A6FD4",
     icon: Workflow,
-    desc: "Machine learning models designed to bridge BSS order management and OSS network provisioning. By analyzing historical circuit delays, fiber cut trends, and POP capacities, the engine predicts order activation lags.",
-    tech: "Predictive Provisioning Pipelines, POP Capacity Estimators, Real-time Queue Tuning",
+    desc: "Machine learning models designed to streamline OSS network provisioning. By analyzing historical circuit delays, fiber cut trends, and POP capacities, the engine predicts order activation lags.",
+    tech: "Predictive Provisioning Pipelines, POP Capacity Estimators,  Queue Tuning",
     target: "Drastically reduce B2B order-to-activation fallout rates."
   },
   {
@@ -291,7 +291,7 @@ const netiqFeatures = [
 const techTags = [
   "Multi-Vendor NMS Parsing", "PCI Collision Detection", "XML & RAML Ingestion",
   "Parameter Drift Analysis", "Closed-Loop Remediation", "NMS Audit Engine",
-  "Topology Reconciliation", "OSS/BSS Integration", "Ghost Cell Detection",
+  "Topology Reconciliation", "OSS Integration", "Ghost Cell Detection",
   "AI Configuration Assurance", "CLI Patch Generation", "Northbound API Dispatch",
   "Golden Config Baseline", "Cross-Layer Correlation", "Predictive Anomaly Detection",
 ];
@@ -363,7 +363,7 @@ function Home() {
             <div className="mt-6 space-y-3">
               {[
                 { icon: Layers, title: "Built from the inside out", desc: "Practitioners building software for network engineers — matching the real scale and complexity of the operations floor." },
-                { icon: TrendingUp, title: "Proven scale & reliability", desc: "Automating network planning and NMS audit workflows at national scale. Deployed in active production environments." },
+                { icon: TrendingUp, title: "Proven scale & reliability", desc: "Automating network planning and NMS audit workflows on larger scale. Deployed in active production environments." },
                 { icon: ShieldCheck, title: "Multi-vendor, multi-domain", desc: "A single intelligence layer that normalises data across RAN, MW, UBR, Wireline, Router, and Core — vendor-agnostic." },
               ].map((item, i) => {
                 const IIcon = item.icon;
@@ -507,7 +507,7 @@ function Home() {
                     <div>
                       <h4 className="text-sm font-semibold text-foreground">AI-Powered Golden Configuration Audits</h4>
                       <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed font-light">
-                        Leverages machine learning models to run golden baseline audits at national scale. NETiQ automatically identifies parameter drift, neighbour relation clashing, PCI conflicts, and frequency mismatches before they can degrade cell performance and impact subscribers.
+                        Leverages machine learning models to run golden baseline audits on larger scale. NETiQ automatically identifies parameter drift, neighbour relation clashing, PCI conflicts, and frequency mismatches before they can degrade cell performance and impact subscribers.
                       </p>
                     </div>
                   </div>
@@ -527,19 +527,14 @@ function Home() {
                   </div>
                 </GlassCard>
 
-                <GlassCard gradientBorder={true} hoverGlow={false} className="p-5 border-[#7C3AED]/20 bg-[#7C3AED]/5">
+                {/* <GlassCard gradientBorder={true} hoverGlow={false} className="p-5 border-[#7C3AED]/20 bg-[#7C3AED]/5">
                   <div className="flex gap-4 items-start">
                     <div className="h-9 w-9 rounded-lg bg-[#7C3AED]/10 flex items-center justify-center text-[#C084FC] shrink-0">
                       <Cpu className="h-5 w-5" />
                     </div>
-                    <div>
-                      <h4 className="text-sm font-semibold text-foreground">Closed-Loop AI Self-Healing</h4>
-                      <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed font-light">
-                        Instead of just logging issues for human review, NETiQ's machine learning engine generates syntax-accurate, vendor-specific CLI correction scripts. These patches can be automatically dispatched through northbound APIs to resolve drifts in minutes.
-                      </p>
-                    </div>
+                   
                   </div>
-                </GlassCard>
+                </GlassCard> */}
               </div>
             </div>
 
@@ -563,8 +558,7 @@ function Home() {
                     <div>
                       <h4 className="text-sm font-semibold text-foreground">Eliminating Order Provisioning Failures</h4>
                       <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed font-light">
-                        When planning databases do not match active physical network states, B2B lease line and 5G network slice provisioning fail. NETiQ maintains high-fidelity configuration records, reducing BSS/OSS activation fallouts.
-                      </p>
+                        NETiQ continuously synchronizes planning and operational network records, ensuring accurate inventory data and reducing provisioning failures across B2B and 5G services                      </p>
                     </div>
                   </div>
                 </GlassCard>
@@ -591,7 +585,7 @@ function Home() {
                     <div>
                       <h4 className="text-sm font-semibold text-foreground">Consolidating Multi-Vendor Dialects</h4>
                       <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed font-light">
-                        Telecom networks are highly fragmented. NETiQ parses and maps proprietary configuration formats from Ericsson, Nokia, Huawei, and Juniper into a single canonical ledger, breaking vendor lock-in for operations.
+                        Telecom networks are highly fragmented. NETiQ parses and maps proprietary configuration from multi vendor formats into a single canonical ledger, breaking vendor lock-in for operations.
                       </p>
                     </div>
                   </div>
@@ -636,7 +630,7 @@ function Home() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold text-[#34D399] bg-[#059669]/10 border border-[#059669]/25 mb-4">
               <span className="h-1.5 w-1.5 rounded-full bg-[#059669] animate-pulse" />
-              Real-Time Cross-Domain Stitching
+              Cross-Domain Stitching
             </div>
             <p className="text-xs uppercase tracking-[0.3em] text-[#059669] font-bold">Topology Intelligence</p>
             <h2 className="mt-2 font-display text-3xl sm:text-4xl font-semibold leading-tight">
@@ -956,7 +950,7 @@ function Home() {
         <div className="text-center max-w-3xl mx-auto">
           <p className="text-xs uppercase tracking-[0.3em] text-primary font-bold">Avendum Labs</p>
           <h2 className="mt-3 font-display text-3xl sm:text-4xl font-semibold">
-            Next-generation <span className="text-gradient">AI in OSS/BSS Integration</span>
+            Next-generation <span className="text-gradient">AI in OSS Integration</span>
           </h2>
           <p className="mt-4 text-muted-foreground text-sm leading-relaxed">
             Avendum Labs researches the application of machine learning and large language models within Operations Support Systems to move networks closer to zero-touch automation.
@@ -1041,7 +1035,7 @@ function Home() {
       </section>
 
       {/* ── DATA STEWARDSHIP ── */}
-      <section className="section-reveal mx-auto max-w-7xl px-6 mt-28">
+      {/* <section className="section-reveal mx-auto max-w-7xl px-6 mt-28">
         <div className="grid lg:grid-cols-[1.2fr_1fr] gap-12 items-center">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-primary font-bold">Data Stewardship</p>
@@ -1153,7 +1147,7 @@ function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── WHY AVENDUM ── */}
       <section className="section-reveal delay-200 mx-auto max-w-7xl px-6 mt-28">
@@ -1243,7 +1237,7 @@ function Home() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="section-reveal relative mt-28 mb-8 mx-6 lg:mx-auto max-w-7xl">
+      <section className="section-reveal relative mt-8 mb-8 mx-6 lg:mx-auto max-w-7xl">
         <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-surface/40 backdrop-blur-md p-12 sm:p-16">
           <div className="pointer-events-none absolute -right-32 -top-32 h-80 w-80 rounded-full bg-[#7C3AED]/20 blur-3xl" />
           <div className="pointer-events-none absolute -left-24 -bottom-24 h-72 w-72 rounded-full bg-primary/15 blur-3xl" />
@@ -1269,7 +1263,7 @@ function Home() {
               {[
                 { icon: Check, title: "30-minute walkthrough", desc: "Custom tool analysis — no aggressive sales pitch." },
                 { icon: Sliders, title: "Custom workflow mapping", desc: "We review how your specific NMS dumps parse." },
-                { icon: Clock, title: "Dedicated support hotline", desc: "Direct access to sales engineers: +91 98998 10118." },
+                { icon: Clock, title: "Dedicated support hotline", desc: "Dedicated support team" },
               ].map((item, i) => {
                 const IIcon = item.icon;
                 return (

@@ -10,7 +10,7 @@ import {
 export const Route = createFileRoute("/company/partner")({
   head: () => ({
     meta: [
-      { title: "Partner with Us — Avendum Technologies" },
+      { title: "Partner with Us - Avendum Technologies" },
       {
         name: "description",
         content:
@@ -102,7 +102,7 @@ function PartnerPage() {
             Partner with Avendum.<br /><span className="text-gradient">Build together.</span>
           </h1>
           <p className="mt-5 text-muted-foreground leading-relaxed text-base lg:text-lg max-w-2xl font-light">
-            We work with system integrators, network vendors, and managed service providers to extend the reach of our platforms across the enterprise ecosystem. There is a partnership model built for your organisation.
+            We work with system integrators, OEM, Network deployment vendor and managed service providers to extend the reach of our platforms across the enterprise ecosystem. There is a partnership model built for your organisation.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/contact" search={{ interest: "partner" }}><BrandButton>Apply to Partner Programme</BrandButton></Link>
@@ -118,7 +118,7 @@ function PartnerPage() {
           Three ways to partner.
         </h2>
         <p className="mt-4 text-muted-foreground leading-relaxed max-w-xl">
-          Choose the model that fits your organisation — or combine multiple for a broader engagement.
+          Choose the model that fits your organisation - or combine multiple for a broader engagement.
         </p>
 
         <div className="mt-10 grid lg:grid-cols-3 gap-6">

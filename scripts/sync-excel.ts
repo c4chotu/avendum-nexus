@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import * as path from "path";
 import * as fs from "fs";
 import { createRequire } from "module";
@@ -80,8 +81,8 @@ function sync() {
   // 1. Parse Services
   const servicesSheet = workbook.Sheets["Services"];
   if (servicesSheet) {
-    const rawServices = XLSX.utils.sheet_to_json<RawService>(servicesSheet);
-    const services = rawServices.map((row) => ({
+    const rawServices = XLSX.utils.sheet_to_json(servicesSheet) as RawService[];
+    const services = rawServices.map((row: RawService) => ({
       id: row.id,
       icon: row.icon,
       title: row.title,
@@ -106,10 +107,10 @@ function sync() {
   // 2. Parse Projects
   const projectsSheet = workbook.Sheets["Projects"];
   if (projectsSheet) {
-    const rawProjects = XLSX.utils.sheet_to_json<RawProject>(projectsSheet);
-    const projects = rawProjects.map((row) => {
+    const rawProjects = XLSX.utils.sheet_to_json(projectsSheet) as RawProject[];
+    const projects = rawProjects.map((row: RawProject) => {
       const outcomeLines = parseList(row.outcome);
-      const outcome = outcomeLines.map((line) => {
+      const outcome = outcomeLines.map((line: string) => {
         const parts = line.split(":");
         return {
           label: parts[0]?.trim() || "",
@@ -144,8 +145,8 @@ function sync() {
   // 3. Parse Jobs
   const jobsSheet = workbook.Sheets["Jobs"];
   if (jobsSheet) {
-    const rawJobs = XLSX.utils.sheet_to_json<RawJob>(jobsSheet);
-    const jobs = rawJobs.map((row) => ({
+    const rawJobs = XLSX.utils.sheet_to_json(jobsSheet) as RawJob[];
+    const jobs = rawJobs.map((row: RawJob) => ({
       id: row.id,
       title: row.title,
       category: row.category,

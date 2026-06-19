@@ -223,10 +223,10 @@ const services = [
     icon: "Code2",
     title: "Enterprise Integration & API Development",
     pitch: "Robust backend integrations, custom northbound/southbound APIs, and database sync pipelines.",
-    details: "We engineer robust microservices and connectors to integrate NETRA and NETiQ with existing BSS/OSS architectures, planning databases, and NMS platforms. We specialize in Java, Spring Boot, Python, and Kafka, ensuring secure data synchronization and high availability.",
+    details: "We engineer robust microservices and connectors to integrate NETRA and NETiQ with existing OSS architectures, planning databases, and NMS platforms. We specialize in Java, Spring Boot, Python, and Kafka, ensuring secure data synchronization and high availability.",
     bullets: [
       "Custom REST/GraphQL APIs and webhook integrations",
-      "Northbound and southbound connectors to legacy OSS/BSS",
+      "Northbound and southbound connectors to legacy OSS",
       "Secure enterprise authentication (SSO, SAML) and fine-grained RBAC",
       "High-performance data synchronization & database mapping"
     ].join("\n"),

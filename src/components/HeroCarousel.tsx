@@ -21,7 +21,7 @@ const slides = [
     eyebrow: "Enterprise Telecom Automation — Live in Production",
     title: "The intelligence layer your network deserves.",
     subtitle:
-      "Purpose-built AI platforms that automate microwave deployment planning and NMS compliance auditing — engineered for the scale and complexity of national-scale telecom operators.",
+      "Purpose-built AI platforms that automate microwave deployment planning and NMS compliance auditing — engineered for the scale and complexity of telecom operators on a larger scale.",
     cta: { to: "/demo", label: "Request a Demo" },
   },
   {

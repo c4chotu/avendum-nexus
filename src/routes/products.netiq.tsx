@@ -15,7 +15,7 @@ import {
 export const Route = createFileRoute("/products/netiq")({
   head: () => ({
     meta: [
-      { title: "NETIQ — Network Intelligence Platform | Avendum" },
+      { title: "NETIQ - Network Intelligence Platform | Avendum" },
       {
         name: "description",
         content:
@@ -111,9 +111,9 @@ const capabilities = [
     icon: BarChart3,
     title: "Analytics & Reporting",
     subtitle: "Operational Dashboards",
-    desc: "Delivers queryable databases, compliance matrices, and historical trend reports of overall network configuration quality.",
+    desc: "Delivers executive dashboard, compliance matrices, and historical trend reports..",
     details: [
-      "Custom query interfaces for network analysts",
+      "Extensive report for network analysis",
       "Trend analysis showing overall network configuration score changes",
       "Exportable discrepancy sheets and verification summaries"
     ]
@@ -235,7 +235,7 @@ const outcomes = [
 const NETIQ_PHASES = [
   {
     id: "scanning",
-    label: "PHASE 1 — NETWORK SCAN & EXTRACTION",
+    label: "PHASE 1 - NETWORK SCAN & EXTRACTION",
     badge: "SCANNING",
     badgeColor: "#7C3AED",
     title: "Scanning dump & extracting node IPs, cells, and sites",
@@ -247,12 +247,12 @@ const NETIQ_PHASES = [
       { t: 1000, cls: "text-purple-400", txt: "> [CELLS] Mapped 4,921 cell configurations with PCI mappings" },
       { t: 1250, cls: "text-cyan-400", txt: "> [IPS] Extracted 4,921 management and signaling IP routes" },
       { t: 1500, cls: "text-emerald-400", txt: "> [SITES] Mapped 1,208 physical cell towers & fiber hub coordinates" },
-      { t: 1750, cls: "text-emerald-400", txt: "> ✓ Scan complete — 23,897 entities cached in system state" },
+      { t: 1750, cls: "text-emerald-400", txt: "> ✓ Scan complete - 23,897 entities cached in system state" },
     ],
   },
   {
     id: "reports",
-    label: "PHASE 2 — REPORT GENERATION",
+    label: "PHASE 2 - REPORT GENERATION",
     badge: "REPORTS",
     badgeColor: "#0891B2",
     title: "Compiling configuration summaries and generating reports",
@@ -262,19 +262,19 @@ const NETIQ_PHASES = [
       { t: 600, cls: "text-muted-foreground", txt: "> Organizing schema records for 107 baseline rules..." },
       { t: 900, cls: "text-purple-400", txt: "> Compiling: netiq_report_daily_20250615.pdf" },
       { t: 1200, cls: "text-emerald-400", txt: "> Exporting: cmdb_inventory_delta.json (3 changes detected)" },
-      { t: 1500, cls: "text-emerald-400", txt: "> ✓ Compliance report successfully built — rating: 94.8%" },
+      { t: 1500, cls: "text-emerald-400", txt: "> ✓ Compliance report successfully built - rating: 94.8%" },
     ],
   },
   {
     id: "auditing",
-    label: "PHASE 3 — PARAMETER AUDITING",
+    label: "PHASE 3 - PARAMETER AUDITING",
     badge: "AUDITING",
     badgeColor: "#D97706",
     title: "Auditing domain configurations against golden baseline",
     lines: [
       { t: 0, cls: "text-muted-foreground", txt: "> Invoking multi-domain Golden Config Audits..." },
       { t: 250, cls: "text-cyan-400", txt: "> [RAN] Auditing 4,921 sectors: verifying PCI uniqueness & tilts..." },
-      { t: 500, cls: "text-red-400", txt: "  [FAIL] PCI Collision: Cell-421 & Cell-422 share PCI 88 on EARFCN 3050" },
+      { t: 550, cls: "text-red-400", txt: "  [FAIL] PCI Collision: Cell-421 & Cell-422 share PCI 88 on EARFCN 3050" },
       { t: 750, cls: "text-cyan-400", txt: "> [MW] Auditing 3,291 links: validating ATPC & frequency plans..." },
       { t: 1000, cls: "text-amber-400", txt: "  [WARN] Path Tx power drift on Hop-77A exceeds plan threshold (+1.5 dB)" },
       { t: 1250, cls: "text-cyan-400", txt: "> [WIRELINE] Auditing VLAN routes & port state bindings..." },
@@ -284,7 +284,7 @@ const NETIQ_PHASES = [
   },
   {
     id: "stitching",
-    label: "PHASE 4 — TOPOLOGY STITCHING & AI",
+    label: "PHASE 4 - TOPOLOGY STITCHING & AI",
     badge: "STITCHING",
     badgeColor: "#059669",
     title: "Stitching service paths and executing AI auto-remediation",
@@ -296,7 +296,7 @@ const NETIQ_PHASES = [
       { t: 1000, cls: "text-cyan-400", txt: "> Generating interface config CLI script for Router-PE9" },
       { t: 1300, cls: "text-muted-foreground", txt: "> Dispatching configuration patch via Northbound SSH API..." },
       { t: 1600, cls: "text-emerald-400", txt: "  [SUCCESS] CLI patch deployed. Re-checking routing tables..." },
-      { t: 1900, cls: "text-emerald-400", txt: "> ✓ End-to-end stitch verified — all service hops active!" },
+      { t: 1900, cls: "text-emerald-400", txt: "> ✓ End-to-end stitch verified - all service hops active!" },
     ],
   },
 ];
@@ -380,7 +380,7 @@ function NetiqPage() {
   let currentScanStatus = "";
 
   if (netiqPhase === 0) {
-    currentScanStatus = "▶ SCANNING — Extracting IPs, cells, sites…";
+    currentScanStatus = "▶ SCANNING - Extracting IPs, cells, sites…";
     if (visibleLines >= 3) activeEdges.push("ran-mw");
     if (visibleLines >= 4) activeEdges.push("ran-ubr");
     if (visibleLines >= 5) activeEdges.push("mw-router");
@@ -390,25 +390,25 @@ function NetiqPage() {
       activeEdges.push("wire-router");
     }
   } else if (netiqPhase === 1) {
-    currentScanStatus = "✓ REPORTING — Compiling integrity report";
+    currentScanStatus = "✓ REPORTING - Compiling integrity report";
     activeEdges = ["ran-mw", "ran-ubr", "mw-router", "ubr-router", "router-core", "wire-router"];
   } else if (netiqPhase === 2) {
-    currentScanStatus = "▶ AUDITING — Running baseline checks";
+    currentScanStatus = "▶ AUDITING - Running baseline checks";
     activeEdges = ["ran-mw", "ran-ubr", "mw-router", "ubr-router", "router-core", "wire-router"];
     if (visibleLines >= 2) anomalyNode = "ran";
     if (visibleLines >= 4) anomalyNode = "mw";
   } else if (netiqPhase === 3) {
     activeEdges = ["ran-mw", "ran-ubr", "mw-router", "router-core", "wire-router"];
     if (visibleLines < 4) {
-      currentScanStatus = "⚠ ANOMALY — Broken stitch on UBR-Router hop";
+      currentScanStatus = "⚠ ANOMALY - Broken stitch on UBR-Router hop";
       anomalyEdge = "ubr-router";
       anomalyNode = "ubr";
     } else if (visibleLines < 7) {
-      currentScanStatus = "⚙ AI ENGINE — Dispatching CLI remediation…";
+      currentScanStatus = "⚙ AI ENGINE - Dispatching CLI remediation…";
       anomalyEdge = "ubr-router";
       anomalyNode = "ubr";
     } else {
-      currentScanStatus = "✓ REMEDIATED — Stitch active via NBI gateway";
+      currentScanStatus = "✓ REMEDIATED - Stitch active via NBI gateway";
       activeEdges.push("ubr-router");
     }
   }
@@ -461,7 +461,7 @@ function NetiqPage() {
           Your NMS is confident. <span className="text-gradient">It shouldn&apos;t be</span>.
         </h2>
         <p className="mt-4 text-muted-foreground leading-relaxed max-w-3xl">
-          Modern networks consume configuration data without external validation loops — creating false confidence in inventory records that drive capacity decisions, automation workflows, and field operations.
+          Modern networks consume configuration data without external validation loops - creating false confidence in inventory records that drive capacity decisions, automation workflows, and field operations.
         </p>
 
         <div className="mt-10 grid sm:grid-cols-2 gap-6">
@@ -559,7 +559,7 @@ function NetiqPage() {
               The Ingestion & <span className="text-gradient">Audit Simulator</span>
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed max-w-2xl">
-              Interact with the live simulator below to see how NETiQ ingests configuration dumps, normalizes assets, runs audits, and stitches service path topologies in real-time.
+              Interact with the simulator below to see how NETiQ ingests configuration dumps, normalizes assets, runs audits, and stitches service path topologies.
             </p>
           </div>
         </div>
@@ -948,11 +948,11 @@ function NetiqPage() {
             </div>
           </div>
 
-          {/* RIGHT — Radar + domain list */}
+          {/* RIGHT - Radar + domain list */}
           <div className="flex flex-col gap-5">
             {/* Radar widget */}
             <div className="rounded-2xl border border-[#7C3AED]/20 bg-surface/20 p-4 flex flex-col items-center gap-4">
-              <p className="text-[10px] font-mono font-bold text-[#A855F7] tracking-widest self-start">TOPOLOGY RADAR — SERVICE PATH DISCOVERY</p>
+              <p className="text-[10px] font-mono font-bold text-[#A855F7] tracking-widest self-start">TOPOLOGY RADAR - SERVICE PATH DISCOVERY</p>
 
               <div className="relative w-52 h-52">
                 {/* Rings */}
