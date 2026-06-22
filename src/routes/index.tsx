@@ -577,7 +577,7 @@ function Home() {
                   </div>
                 </GlassCard>
 
-                <GlassCard gradientBorder={true} hoverGlow={false} className="p-5 border-primary/20 bg-primary/5">
+                {/* <GlassCard gradientBorder={true} hoverGlow={false} className="p-5 border-primary/20 bg-primary/5">
                   <div className="flex gap-4 items-start">
                     <div className="h-9 w-9 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
                       <Layers className="h-5 w-5" />
@@ -589,7 +589,7 @@ function Home() {
                       </p>
                     </div>
                   </div>
-                </GlassCard>
+                </GlassCard> */}
               </div>
             </div>
           </div>

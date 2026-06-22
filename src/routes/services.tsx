@@ -46,8 +46,27 @@ const services: Service[] = (servicesData as any[]).map((s) => ({
   icon: getIcon(s.icon),
 }));
 
+declare module "react" {
+  namespace JSX {
+    interface IntrinsicElements {
+      'dotlottie-wc': any;
+    }
+  }
+}
+
 function ServicesPage() {
   const [activeService, setActiveService] = useState<Service | null>(null);
+
+  // Load LottieFiles player dynamically
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "module";
+    script.src = "https://unpkg.com/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js";
+    document.head.appendChild(script);
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
 
   return (
     <div className="relative min-h-screen pt-6 pb-6 overflow-hidden">
@@ -59,33 +78,51 @@ function ServicesPage() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
-        <header className="max-w-3xl mb-16">
+        <div className="grid lg:grid-cols-[1.3fr_0.7fr] gap-12 items-center mb-16 w-full max-w-none">
+          <header className="max-w-3xl mb-0 animate-fade-in">
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs uppercase tracking-[0.2em] mb-4"
+            >
+              <Sparkles className="h-3.5 w-3.5" /> Capabilities & Solutions
+            </motion.div>
+            <motion.h1
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="font-display text-4xl sm:text-6xl font-semibold leading-tight tracking-tight"
+            >
+              Platform Engineering & Solution Development for <span className="text-gradient font-bold">Mission-Critical Networks</span>.
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mt-6 text-muted-foreground text-lg sm:text-xl leading-relaxed"
+            >
+              Built by telecom practitioners. We combine domain-specific artificial intelligence,
+              resilient backends, and user-centric design to accelerate operations at scale.
+            </motion.p>
+          </header>
+
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs uppercase tracking-[0.2em] mb-4"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="flex items-center justify-center relative w-full h-[320px] lg:h-[380px] filter drop-shadow-[0_0_35px_rgba(255,107,0,0.25)]"
           >
-            <Sparkles className="h-3.5 w-3.5" /> Capabilities & Solutions
+            {/* Soft orange glow behind the assistant bot */}
+            <div className="absolute w-[200px] h-[200px] bg-primary/15 rounded-full blur-[45px] pointer-events-none" />
+            <dotlottie-wc
+              src="/company-assistant.lottie"
+              autoplay
+              loop
+              style={{ width: "290px", height: "290px", position: "relative", zIndex: 10 }}
+            />
           </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-display text-4xl sm:text-6xl font-semibold leading-tight tracking-tight"
-          >
-            Platform Engineering & Solution Development for <span className="text-gradient font-bold">Mission-Critical Networks</span>.
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-6 text-muted-foreground text-lg sm:text-xl leading-relaxed"
-          >
-            Built by telecom practitioners. We combine domain-specific artificial intelligence,
-            resilient backends, and user-centric design to accelerate operations at scale.
-          </motion.p>
-        </header>
+        </div>
 
         {/* Bento Grid */}
         <motion.div
@@ -186,6 +223,188 @@ function ServicesPage() {
             );
           })}
         </motion.div>
+
+        {/* Section: Architectural Standards & Rigorous Compliance */}
+        <section className="mt-28 border-t border-border/30 pt-20">
+          <div className="max-w-3xl mb-12">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs uppercase tracking-[0.2em] mb-4">
+              <ShieldCheck className="h-3.5 w-3.5" /> Quality Assurance
+            </div>
+            <h2 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">
+              Telecom-Grade Engineering Standards
+            </h2>
+            <p className="mt-4 text-muted-foreground text-sm leading-relaxed font-light">
+              We design and construct software under strict architectural guardrails required for mission-critical core networks, ensuring zero-trust isolation and sub-100ms real-time stream ingestion.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <GlassCard className="p-6 border border-border/40 bg-card/10 rounded-2xl hover:bg-card/25 transition-all duration-300 relative overflow-hidden flex flex-col justify-between">
+              <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-full pointer-events-none" />
+              <div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-foreground/[0.02] border border-border/30 text-primary mb-5">
+                  <Server className="h-5 w-5" />
+                </div>
+                <h3 className="font-display text-sm font-semibold text-foreground">Zero-Trust Isolation</h3>
+                <p className="mt-2 text-xs text-muted-foreground leading-relaxed font-light">
+                  Strict schema isolation and secure multi-tenant boundaries for complex multi-vendor network topology audits.
+                </p>
+              </div>
+            </GlassCard>
+
+            <GlassCard className="p-6 border border-border/40 bg-card/10 rounded-2xl hover:bg-card/25 transition-all duration-300 relative overflow-hidden flex flex-col justify-between">
+              <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-full pointer-events-none" />
+              <div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-foreground/[0.02] border border-border/30 text-primary mb-5">
+                  <Gauge className="h-5 w-5" />
+                </div>
+                <h3 className="font-display text-sm font-semibold text-foreground">High-Throughput SLAs</h3>
+                <p className="mt-2 text-xs text-muted-foreground leading-relaxed font-light">
+                  Kafka stream processing and JVM performance tuning configured for real-time operations without bottlenecks.
+                </p>
+              </div>
+            </GlassCard>
+
+            <GlassCard className="p-6 border border-border/40 bg-card/10 rounded-2xl hover:bg-card/25 transition-all duration-300 relative overflow-hidden flex flex-col justify-between">
+              <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-full pointer-events-none" />
+              <div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-foreground/[0.02] border border-border/30 text-primary mb-5">
+                  <Cpu className="h-5 w-5" />
+                </div>
+                <h3 className="font-display text-sm font-semibold text-foreground">3GPP Compliance</h3>
+                <p className="mt-2 text-xs text-muted-foreground leading-relaxed font-light">
+                  Aligning all configurations, command parsing, and self-healing automation engines with global telecom standards.
+                </p>
+              </div>
+            </GlassCard>
+
+            <GlassCard className="p-6 border border-border/40 bg-card/10 rounded-2xl hover:bg-card/25 transition-all duration-300 relative overflow-hidden flex flex-col justify-between">
+              <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-full pointer-events-none" />
+              <div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-foreground/[0.02] border border-border/30 text-primary mb-5">
+                  <Zap className="h-5 w-5" />
+                </div>
+                <h3 className="font-display text-sm font-semibold text-foreground">Multi-Vendor Translators</h3>
+                <p className="mt-2 text-xs text-muted-foreground leading-relaxed font-light">
+                  Native parsing connectors built for Ericsson, Nokia, Huawei, and custom proprietary config dump formats.
+                </p>
+              </div>
+            </GlassCard>
+          </div>
+        </section>
+
+        {/* Section: Delivery Models */}
+        <section className="mt-28 border-t border-border/30 pt-20 pb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-5 space-y-6">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs uppercase tracking-[0.2em]">
+                <Kanban className="h-3.5 w-3.5" /> Delivery Framework
+              </div>
+              <h2 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight text-foreground leading-tight">
+                Embedded Co-Engineering & Solution Handover
+              </h2>
+              <p className="text-muted-foreground text-sm leading-relaxed font-light">
+                We don&apos;t just consult - we ship production-grade code. Our delivery models are designed to align seamlessly with operator engineering teams, providing immediate telemetry extensions and long-term capability transfer.
+              </p>
+              <div className="space-y-4 pt-2">
+                <div className="flex items-start gap-3">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-[10px] font-mono font-bold mt-0.5">01</span>
+                  <div>
+                    <h4 className="text-sm font-semibold text-foreground">Co-Engineering Squads</h4>
+                    <p className="text-xs text-muted-foreground mt-0.5">Embedded telecom and frontend engineers working inside your deployment pipeline.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-[10px] font-mono font-bold mt-0.5">02</span>
+                  <div>
+                    <h4 className="text-sm font-semibold text-foreground">AI Integration Squads</h4>
+                    <p className="text-xs text-muted-foreground mt-0.5">Specialized MLops and data science squads to embed custom anomaly classifiers and closed-loop healing into operations.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-[10px] font-mono font-bold mt-0.5">03</span>
+                  <div>
+                    <h4 className="text-sm font-semibold text-foreground">Managed Platform Extensions</h4>
+                    <p className="text-xs text-muted-foreground mt-0.5">Turnkey delivery of custom dashboard stencils, API adapters, and RCA scripts.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-[10px] font-mono font-bold mt-0.5">04</span>
+                  <div>
+                    <h4 className="text-sm font-semibold text-foreground">Architecture Consultations</h4>
+                    <p className="text-xs text-muted-foreground mt-0.5">Telecom systems architecture audits and strategic scaling reviews before launch.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Interactive/Animated Pipeline Card on the Right */}
+            <div className="lg:col-span-7">
+              <GlassCard className="p-8 border border-border/40 bg-card/20 backdrop-blur-md rounded-3xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-[50px] pointer-events-none" />
+
+                <h3 className="font-display text-base font-semibold text-foreground mb-6 flex items-center gap-2">
+                  <Zap className="h-4 w-4 text-primary" /> Core Integration Architecture Pipeline
+                </h3>
+
+                {/* Pipeline visualizer */}
+                <div className="space-y-4">
+                  {/* Step 1 */}
+                  <div className="relative p-4 rounded-xl border border-border/30 bg-background/30 hover:border-primary/20 transition-all flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <div className="h-8 w-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                        <Database className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <span className="block text-xs font-semibold text-foreground">1. Multi-Vendor Configuration Ingestion</span>
+                        <span className="block text-[10px] text-muted-foreground mt-0.5">Ericsson, Nokia, Huawei RAW dumps & Kafka streams</span>
+                      </div>
+                    </div>
+                    <span className="text-[9px] font-mono text-emerald-400 font-semibold px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">ACTIVE</span>
+                  </div>
+
+                  {/* Flow Arrow */}
+                  <div className="flex justify-center h-4">
+                    <div className="w-0.5 h-full bg-gradient-to-b from-emerald-500 to-indigo-500" />
+                  </div>
+
+                  {/* Step 2 */}
+                  <div className="relative p-4 rounded-xl border border-border/30 bg-background/30 hover:border-primary/20 transition-all flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <div className="h-8 w-8 rounded-lg bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center shrink-0">
+                        <Brain className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <span className="block text-xs font-semibold text-foreground">2. Translation & Stitching Engine</span>
+                        <span className="block text-[10px] text-muted-foreground mt-0.5">Normalized JSON schemas & closed-loop rule matching</span>
+                      </div>
+                    </div>
+                    <span className="text-[9px] font-mono text-indigo-400 font-semibold px-2 py-0.5 rounded-full bg-indigo-500/10 border border-indigo-500/20">PROCESSING</span>
+                  </div>
+
+                  {/* Flow Arrow */}
+                  <div className="flex justify-center h-4">
+                    <div className="w-0.5 h-full bg-gradient-to-b from-indigo-500 to-primary" />
+                  </div>
+
+                  {/* Step 3 */}
+                  <div className="relative p-4 rounded-xl border border-border/30 bg-background/30 hover:border-primary/20 transition-all flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <div className="h-8 w-8 rounded-lg bg-primary/10 border border-primary/20 text-primary flex items-center justify-center shrink-0">
+                        <Palette className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <span className="block text-xs font-semibold text-foreground">3. High-Fidelity Topology Dashboard</span>
+                        <span className="block text-[10px] text-muted-foreground mt-0.5">Interactive map overlays, planning stencils & audits</span>
+                      </div>
+                    </div>
+                    <span className="text-[9px] font-mono text-primary font-semibold px-2 py-0.5 rounded-full bg-primary/10 border border-primary/20">READY</span>
+                  </div>
+                </div>
+              </GlassCard>
+            </div>
+          </div>
+        </section>
       </div>
 
       {/* Click View Detail Modal Overlay */}
@@ -859,7 +1078,7 @@ function AccelerationVisualizer() {
 // 5. Platform Co-Engineering & Operations Support Visualizer
 // ---------------------------
 function OutsourcingVisualizer() {
-  const [activeTeam, setActiveTeam] = useState<"ran" | "mw" | "core-ip">("ran");
+  const [activeTeam, setActiveTeam] = useState<"ran" | "mw" | "core-ip" | "ai">("ran");
 
   const teams = {
     ran: {
@@ -885,22 +1104,30 @@ function OutsourcingVisualizer() {
       engineers: ["Daniel V. (IP Lead)", "Chloe P. (Spring Boot / Java)", "Arjun S. (Kafka DevOps)"],
       metric: "IP Configurations pushed: 8,200/wk",
       uptime: "99.99%"
+    },
+    ai: {
+      name: "AI Integration & Analytics Squad",
+      focus: "Predictive Models & Closed-Loop AI",
+      status: "Active Training",
+      engineers: ["Dr. Evelyn R. (AI Principal)", "Kabir D. (MLops Engineer)", "Rohan G. (Data Pipeline Lead)"],
+      metric: "Inference Latency: 12ms | Accuracy: 98.6%",
+      uptime: "99.95%"
     }
   };
 
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-3 gap-2">
+      <div className="grid grid-cols-4 gap-2">
         {Object.keys(teams).map((key) => {
           const isActive = activeTeam === key;
           return (
             <button
               key={key}
               onClick={() => setActiveTeam(key as any)}
-              className={`p-3 rounded-xl border transition-all text-center cursor-pointer ${isActive ? "bg-primary/10 border-primary text-primary" : "border-border/40 hover:bg-secondary/40 text-muted-foreground"
+              className={`p-2 rounded-lg border transition-all text-center cursor-pointer ${isActive ? "bg-primary/10 border-primary text-primary" : "border-border/40 hover:bg-secondary/40 text-muted-foreground"
                 }`}
             >
-              <span className="block text-xs font-semibold uppercase">{key} Squad</span>
+              <span className="block text-[9px] font-semibold uppercase">{key === "core-ip" ? "IP" : key.toUpperCase()} Squad</span>
             </button>
           );
         })}

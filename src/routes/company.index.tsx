@@ -59,8 +59,8 @@ const philosophy = [
 const techStack = [
   { layer: "Ingestion Layer", items: ["XML / RAML / CSV Parser", "Multi-Vendor Adapters", "NMS Export Connectors", "REST / SFTP Fetch"], color: "#7C3AED" },
   { layer: "Intelligence Core", items: ["Audit Rules Engine", "Graph Correlation DB", "ML Drift Predictor", "Topology Stitching"], color: "#2563EB" },
-  { layer: "Integration Bus", items: [ "BsS line - scheduled dump fetch","minimal integration", "NMS Bidirectional"], color: "#059669" },
-  { layer: "Presentation", items: ["react SP","executive dashboard", "Report Generator", "API Gateway"], color: "#D97706" },
+  { layer: "Integration Bus", items: ["Multivendor integration", "minimal integration", "NMS Bidirectional"], color: "#059669" },
+  { layer: "Presentation", items: ["react SP", "executive dashboard", "Report Generator", "API Gateway"], color: "#D97706" },
 ];
 
 const standards = [
@@ -77,7 +77,7 @@ const standards = [
 const metrics = [
   { value: 50, suffix: "+", label: "Audit Rules per Domain", icon: ShieldCheck, color: "#7C3AED" },
   { value: 6, suffix: "", label: "Network Domains Covered", icon: Network, color: "#2563EB" },
-  { value: 3, suffix: "", label: "Vendors Supported (RAN)", icon: CircuitBoard, color: "#059669" },
+  { value: 3, suffix: "", label: "Vendors Supported", icon: CircuitBoard, color: "#059669" },
   { value: 99, suffix: "%", label: "Config Parse Accuracy", icon: BarChart3, color: "#D97706" },
 ];
 
@@ -371,9 +371,8 @@ function CompanyPage() {
                   <button
                     key={p.label}
                     onClick={() => setActivePhilo(i)}
-                    className={`w-full flex items-center gap-3 p-3 rounded-xl border text-left transition-all ${
-                      isActive ? "border-primary/40 bg-primary/8" : "border-border/30 hover:bg-foreground/5"
-                    }`}
+                    className={`w-full flex items-center gap-3 p-3 rounded-xl border text-left transition-all ${isActive ? "border-primary/40 bg-primary/8" : "border-border/30 hover:bg-foreground/5"
+                      }`}
                   >
                     <div className={`h-8 w-8 rounded-lg flex items-center justify-center shrink-0 ${isActive ? "bg-primary text-white" : "bg-surface text-muted-foreground"}`}>
                       <Icon className="h-4 w-4" />
@@ -397,11 +396,13 @@ function CompanyPage() {
               transition={{ duration: 0.3 }}
             >
               <GlassCard gradientBorder hoverGlow={false} className="p-8 min-h-[280px] flex flex-col justify-center">
-                {(() => { const Icon = philosophy[activePhilo].icon; return (
-                  <div className="h-14 w-14 rounded-2xl bg-primary/15 text-primary flex items-center justify-center mb-6">
-                    <Icon className="h-7 w-7" />
-                  </div>
-                ); })()}
+                {(() => {
+                  const Icon = philosophy[activePhilo].icon; return (
+                    <div className="h-14 w-14 rounded-2xl bg-primary/15 text-primary flex items-center justify-center mb-6">
+                      <Icon className="h-7 w-7" />
+                    </div>
+                  );
+                })()}
                 <p className="text-[10px] font-mono uppercase tracking-widest text-primary">{philosophy[activePhilo].label}</p>
                 <h3 className="mt-2 font-display text-2xl font-bold">{philosophy[activePhilo].title}</h3>
                 <p className="mt-4 text-muted-foreground leading-relaxed">{philosophy[activePhilo].body}</p>

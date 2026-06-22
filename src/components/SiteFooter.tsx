@@ -61,7 +61,7 @@ export function SiteFooter() {
           <ul className="space-y-2.5 text-sm">
             <li><Link to="/products/netra" className="hover:text-primary transition-colors">NETRA</Link></li>
             <li><Link to="/products/netiq" className="hover:text-primary transition-colors">NETIQ</Link></li>
-            <li><Link to="/" hash="usecases" className="hover:text-primary transition-colors">Use Cases</Link></li>
+            {/* <li><Link to="/" hash="usecases" className="hover:text-primary transition-colors">Use Cases</Link></li> */}
           </ul>
         </div>
 

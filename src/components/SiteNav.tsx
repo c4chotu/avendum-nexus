@@ -49,7 +49,7 @@ export function SiteNav() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div
-          className={`flex items-center justify-between rounded-full px-4 sm:px-6 py-3 transition-all duration-300 ${scrolled ? "glass shadow-lg" : "bg-transparent"
+          className={`flex items-center justify-between rounded-full px-4 sm:px-6 py-3 transition-all duration-300 ${scrolled ? "glass-nav shadow-lg" : "bg-transparent"
             }`}
         >
           {/* Logo */}
@@ -107,13 +107,13 @@ export function SiteNav() {
             </Link>
 
             {/* Scroll Anchors */}
-            <Link
+            {/* <Link
               to="/"
               hash="usecases"
               className="px-4 py-2 text-sm text-foreground/75 hover:text-foreground transition-colors"
             >
               Use Cases
-            </Link>
+            </Link> */}
             <Link
               to="/"
               hash="amc"
@@ -223,14 +223,14 @@ export function SiteNav() {
               >
                 What We Build
               </Link>
-              <Link
+              {/* <Link
                 to="/"
                 hash="usecases"
                 onClick={() => setOpen(false)}
                 className="px-4 py-2 text-sm text-foreground/80 hover:text-primary rounded-xl"
               >
                 Use Cases
-              </Link>
+              </Link> */}
               <Link
                 to="/"
                 hash="amc"
