@@ -41,6 +41,8 @@ export default defineConfig({
       watch: {
         ignored: ["**/routeTree.gen.ts"],
       },
+      host: true,
+      port: process.env.PORT ? parseInt(process.env.PORT) : 8080,
     },
   },
   tanstackStart: {
