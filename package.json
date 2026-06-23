@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite dev",
     "prebuild": "tsx scripts/sync-excel.ts || echo skipped",
-    "build": "vite build",
-    "build:dev": "vite build --mode development",
+    "build": "NODE_ENV=production vite build",
+    "build:dev": "vite build --mode production",
     "preview": "vite preview",
     "start": "node start.cjs",
     "lint": "eslint .",
