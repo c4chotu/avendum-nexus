@@ -74,12 +74,14 @@ const standards = [
   { name: "MEF 3.0", desc: "Carrier Ethernet Standards (MW/Wireline)" },
 ];
 
+/* Commented out as requested - replaced with Analytics Performance animation
 const metrics = [
   { value: 50, suffix: "+", label: "Audit Rules per Domain", icon: ShieldCheck, color: "#7C3AED" },
   { value: 6, suffix: "", label: "Network Domains Covered", icon: Network, color: "#2563EB" },
   { value: 3, suffix: "", label: "Vendors Supported", icon: CircuitBoard, color: "#059669" },
   { value: 99, suffix: "%", label: "Config Parse Accuracy", icon: BarChart3, color: "#D97706" },
 ];
+*/
 
 function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
   const [count, setCount] = useState(0);
@@ -106,8 +108,26 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
   return <div ref={ref}>{count}{suffix}</div>;
 }
 
+declare module "react" {
+  namespace JSX {
+    interface IntrinsicElements {
+      'lottie-player': any;
+    }
+  }
+}
+
 function CompanyPage() {
   const [activePhilo, setActivePhilo] = useState(0);
+
+  // Load LottieFiles player dynamically
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js";
+    document.head.appendChild(script);
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
 
   // Auto-advance philosophy
   useEffect(() => {
@@ -141,7 +161,7 @@ function CompanyPage() {
           </div>
         </motion.div>
 
-        {/* Metrics grid */}
+        {/* Commented out KPIs as requested
         <motion.div
           className="grid grid-cols-2 gap-4"
           initial={{ opacity: 0, scale: 0.95 }}
@@ -164,6 +184,30 @@ function CompanyPage() {
               </motion.div>
             );
           })}
+        </motion.div>
+        */}
+
+        {/* Lottie Animation instead of Metrics grid */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.15 }}
+          className="relative w-full h-[380px] flex items-center justify-center overflow-hidden"
+        >
+          {/* Soft Glow Shadow behind the animation */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] bg-primary/20 rounded-full blur-[65px] pointer-events-none" />
+
+          {/* Lottie Player Web Component with theme orange drop shadow */}
+          <div className="w-full h-full max-w-[360px] max-h-[360px] flex items-center justify-center relative z-10 filter drop-shadow-[0_0_35px_rgba(255,107,0,0.25)]">
+            <lottie-player
+              src="/analytics-performance.json"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay
+              style={{ width: "100%", height: "100%" }}
+            />
+          </div>
         </motion.div>
       </section>
 
